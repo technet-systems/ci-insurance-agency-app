@@ -301,7 +301,6 @@ class MY_Model extends CI_Model
         // let's join the subqueries...
         $data = $this->join_temporary_results($data);
         $this->_database->reset_query();
-        $this->_requested = array();
         if(isset($this->return_as_dropdown) && $this->return_as_dropdown == 'dropdown')
         {
             foreach($data as $row)
@@ -1221,7 +1220,7 @@ class MY_Model extends CI_Model
                     if(array_key_exists('with',$request['parameters']))
                     {
                         // Do we have many nested relation
-                        if(is_array($request['parameters']['with']) && isset($request['parameters']['with'][0])&& is_array($request['parameters']['with'][0]))
+                        if(is_array($request['parameters']['with']) && isset($request['parameters']['with'][0]))
                         {
                             foreach ($request['parameters']['with'] as $with)
                             {
@@ -1782,9 +1781,9 @@ class MY_Model extends CI_Model
     {
         if($this->timestamps !== FALSE)
         {
-            $this->_created_at_field = (is_array($this->timestamps) && isset($this->timestamps[0])) ? $this->timestamps[0] : 'created_at';
-            $this->_updated_at_field = (is_array($this->timestamps) && isset($this->timestamps[1])) ? $this->timestamps[1] : 'updated_at';
-            $this->_deleted_at_field = (is_array($this->timestamps) && isset($this->timestamps[2])) ? $this->timestamps[2] : 'deleted_at';
+            $this->_created_at_field = (is_array($this->timestamps) && isset($this->timestamps[0])) ? $this->timestamps[0] : substr($this->primary_key,0,3) . 'created_at';
+            $this->_updated_at_field = (is_array($this->timestamps) && isset($this->timestamps[1])) ? $this->timestamps[1] : substr($this->primary_key,0,3) . 'updated_at';
+            $this->_deleted_at_field = (is_array($this->timestamps) && isset($this->timestamps[2])) ? $this->timestamps[2] : substr($this->primary_key,0,3) . 'deleted_at';
         }
         return TRUE;
     }
@@ -1982,15 +1981,11 @@ class MY_Model extends CI_Model
             $this->with($relation,$arguments);
             return $this;
         }
-        if (method_exists($this->_database, $method)) {
-                call_user_func_array(array($this->_database, $method), $arguments);
-                return $this;
-        }
         $parent_class = get_parent_class($this);
         if ($parent_class !== FALSE && !method_exists($parent_class, $method) && !method_exists($this,$method))
         {
-            $msg = 'The method "'.$method.'" does not exist in '. get_class($this) .' or MY_Model or CI_Model.';
-            show_error($msg,EXIT_UNKNOWN_METHOD,'Method Not Found');
+            echo 'No method with that name ('.$method.') in '. get_class($this) .' or MY_Model or CI_Model.';
+            exit;
         }
     }
 
