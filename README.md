@@ -11,8 +11,8 @@
 
 ## Features:
 
-* [ ] user authentication [Uwierzytelnianie](https://pl.wikipedia.org/wiki/Uwierzytelnianie)
-
+* [x] user authentication [Uwierzytelnianie](https://pl.wikipedia.org/wiki/Uwierzytelnianie) - [2017-03-16 ~ 2017-03-20]
+* [ ] database tables (2017-03-20 ~ )
 
 ## Change Log:
 
