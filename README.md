@@ -12,7 +12,8 @@
 ## Features:
 
 * [x] user authentication [Uwierzytelnianie](https://pl.wikipedia.org/wiki/Uwierzytelnianie) - [2017-03-16 ~ 2017-03-20]
-* [ ] database tables (2017-03-20 ~ )
+* [x] database tables [2017-03-20 ~ 2017-03-21]
+* [ ] adding layout assets [2017-03-21 ~]
 
 ## Change Log:
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Czas generowania: 20 Mar 2017, 21:15
+-- Czas generowania: 21 Mar 2017, 11:25
 -- Wersja serwera: 10.1.19-MariaDB
 -- Wersja PHP: 5.6.28
 
@@ -19,6 +19,114 @@ SET time_zone = "+00:00";
 --
 -- Baza danych: `ci-insurance-agency-app`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `clients`
+--
+
+CREATE TABLE `clients` (
+  `cl_id` int(11) UNSIGNED NOT NULL,
+  `cl_fname` varchar(255) NOT NULL,
+  `cl_lname` varchar(255) NOT NULL,
+  `cl_address` varchar(255) NOT NULL,
+  `cl_email` varchar(255) NOT NULL,
+  `cl_phone` int(11) NOT NULL,
+  `cl_pesel` int(11) NOT NULL,
+  `cl_notice` text NOT NULL,
+  `cl_process` tinyint(1) NOT NULL DEFAULT '0',
+  `cl_created_at` datetime DEFAULT NULL,
+  `cl_created_by` int(11) UNSIGNED DEFAULT NULL,
+  `cl_updated_at` datetime DEFAULT NULL,
+  `cl_updated_by` int(10) UNSIGNED DEFAULT NULL,
+  `cl_deleted_at` datetime DEFAULT NULL,
+  `cl_deleted_by` int(11) UNSIGNED DEFAULT NULL,
+  `cl_us_id` int(11) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `companies`
+--
+
+CREATE TABLE `companies` (
+  `co_id` int(11) UNSIGNED NOT NULL,
+  `co_name` varchar(255) NOT NULL,
+  `co_notice` text NOT NULL,
+  `co_created_at` datetime DEFAULT NULL,
+  `co_created_by` int(11) UNSIGNED DEFAULT NULL,
+  `co_updated_at` datetime DEFAULT NULL,
+  `co_updated_by` int(10) UNSIGNED DEFAULT NULL,
+  `co_deleted_at` datetime DEFAULT NULL,
+  `co_deleted_by` int(11) UNSIGNED DEFAULT NULL,
+  `co_it_id` int(11) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `insurances`
+--
+
+CREATE TABLE `insurances` (
+  `in_id` int(11) UNSIGNED NOT NULL,
+  `in_idenitity` varchar(255) NOT NULL,
+  `in_fdate` date NOT NULL,
+  `in_ldate` date NOT NULL,
+  `in_link` varchar(255) NOT NULL,
+  `in_notice` text NOT NULL,
+  `in_process` tinyint(1) NOT NULL DEFAULT '0',
+  `in_created_at` datetime DEFAULT NULL,
+  `in_created_by` int(11) UNSIGNED DEFAULT NULL,
+  `in_updated_at` datetime DEFAULT NULL,
+  `in_updated_by` int(10) UNSIGNED DEFAULT NULL,
+  `in_deleted_at` datetime DEFAULT NULL,
+  `in_deleted_by` int(11) UNSIGNED DEFAULT NULL,
+  `in_cl_id` int(11) UNSIGNED NOT NULL,
+  `in_it_id` int(11) UNSIGNED NOT NULL,
+  `in_co_id` int(11) UNSIGNED NOT NULL,
+  `in_pr_id` int(11) UNSIGNED NOT NULL,
+  `in_us_id` int(11) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `items`
+--
+
+CREATE TABLE `items` (
+  `it_id` int(11) UNSIGNED NOT NULL,
+  `it_name` varchar(255) NOT NULL,
+  `it_notice` text NOT NULL,
+  `it_created_at` datetime DEFAULT NULL,
+  `it_created_by` int(11) UNSIGNED DEFAULT NULL,
+  `it_updated_at` datetime DEFAULT NULL,
+  `it_updated_by` int(10) UNSIGNED DEFAULT NULL,
+  `it_deleted_at` datetime DEFAULT NULL,
+  `it_deleted_by` int(11) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `products`
+--
+
+CREATE TABLE `products` (
+  `pr_id` int(11) UNSIGNED NOT NULL,
+  `pr_name` varchar(255) NOT NULL,
+  `pr_notice` text NOT NULL,
+  `pr_created_at` datetime DEFAULT NULL,
+  `pr_created_by` int(11) UNSIGNED DEFAULT NULL,
+  `pr_updated_at` datetime DEFAULT NULL,
+  `pr_updated_by` int(10) UNSIGNED DEFAULT NULL,
+  `pr_deleted_at` datetime DEFAULT NULL,
+  `pr_deleted_by` int(11) UNSIGNED DEFAULT NULL,
+  `pr_co_id` int(11) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -88,6 +196,36 @@ INSERT INTO `users` (`us_id`, `us_fname`, `us_lname`, `us_email`, `us_pass`) VAL
 --
 
 --
+-- Indexes for table `clients`
+--
+ALTER TABLE `clients`
+  ADD PRIMARY KEY (`cl_id`);
+
+--
+-- Indexes for table `companies`
+--
+ALTER TABLE `companies`
+  ADD PRIMARY KEY (`co_id`);
+
+--
+-- Indexes for table `insurances`
+--
+ALTER TABLE `insurances`
+  ADD PRIMARY KEY (`in_id`);
+
+--
+-- Indexes for table `items`
+--
+ALTER TABLE `items`
+  ADD PRIMARY KEY (`it_id`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`pr_id`);
+
+--
 -- Indexes for table `sessions`
 --
 ALTER TABLE `sessions`
@@ -103,6 +241,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT dla tabeli `clients`
+--
+ALTER TABLE `clients`
+  MODIFY `cl_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT dla tabeli `companies`
+--
+ALTER TABLE `companies`
+  MODIFY `co_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT dla tabeli `insurances`
+--
+ALTER TABLE `insurances`
+  MODIFY `in_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT dla tabeli `items`
+--
+ALTER TABLE `items`
+  MODIFY `it_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT dla tabeli `products`
+--
+ALTER TABLE `products`
+  MODIFY `pr_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT dla tabeli `users`
 --
