@@ -20,3 +20,12 @@ function get_client_ip() {
         $ipaddress = 'UNKNOWN';
     return $ipaddress;
 }
+
+function session_flashdata($open_tag = FALSE, $close_tag = FALSE) {
+    if($open_tag && $close_tag) {
+        return $open_tag . $this->session->flashdata('error') . $close_tag;
+    } else {
+        return $this->session->flashdata('error');
+    }
+    
+}

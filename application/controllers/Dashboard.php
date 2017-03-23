@@ -14,6 +14,7 @@ class Dashboard extends MY_Controller {
     }
     
     public function index() {
+        /*
         var_dump($this->data);
         var_dump($_SESSION);
         
@@ -24,6 +25,10 @@ class Dashboard extends MY_Controller {
         echo anchor('dashboard/delete', 'delete');
         echo '<br />';
         echo anchor('dashboard/select', 'select');
+         * 
+         */
+
+	$this->twig->parse('modal/login_v.twig', $this->data);
     }
     
     public function create() {

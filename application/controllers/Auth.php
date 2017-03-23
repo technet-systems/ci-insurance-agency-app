@@ -45,7 +45,7 @@ class Auth extends MY_Controller {
             }
         }
         
-        $this->load->view('sign-in_v', $this->data);
+        $this->twig->parse('modal/login_v.twig', $this->data);
     }
     
     public function logout() {

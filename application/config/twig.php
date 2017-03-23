@@ -24,6 +24,11 @@ $config['twig.locations'] = array(
 
 $config['twig.functions'] = array(
     // Register functions for use in Twig templates here
+    "base_url",
+    "form_open",
+    "form_close",
+    "validation_errors"
+    
 );
 
 $config['twig.filters'] = array(
