@@ -1,4 +1,4 @@
-{% extends "modal_layout_v.twig" %}
+{% extends "modal_layout.twig" %}
 
 {% block body %}
 <body class="blank">
@@ -8,10 +8,6 @@
 
         <!-- Main content-->
         <section class="content">
-            <div class="back-link">
-                <a href="index.html" class="btn btn-accent">Back to Dashboard</a>
-            </div>
-
             <div class="container-center animated slideInDown">
 
                 <div class="view-header">
@@ -19,9 +15,9 @@
                         <i class="pe page-header-icon pe-7s-unlock"></i>
                     </div>
                     <div class="header-title">
-                        <h3>Login</h3>
+                        <h3>Logowanie</h3>
                         <small>
-                            Please enter your credentials to login.
+                            Proszę o podanie e-maila i hasła do konta
                         </small>
                     </div>
                 </div>
@@ -36,14 +32,14 @@
                     <div class="panel-body">
                         {{ form_open() }}
                             <div class="form-group">
-                                <label class="control-label" for="username">Username</label>
-                                <input type="text" placeholder="example@gmail.com" title="Please enter you username"value="" name="us_email" id="us_email" class="form-control">
-                                <span class="help-block small">Your unique username to app</span>
+                                <label class="control-label" for="username">E-mail</label>
+                                <input type="text" placeholder="twoj.mail@gmail.com" value="" name="us_email" id="us_email" class="form-control">
+                                <span class="help-block small">Twój unikalny e-mail</span>
                             </div>
                             <div class="form-group">
-                                <label class="control-label" for="password">Password</label>
-                                <input type="password" title="Please enter your password" placeholder="******" value="" name="us_pass" id="us_pass" class="form-control">
-                                <span class="help-block small">Your strong password</span>
+                                <label class="control-label" for="password">Hasło</label>
+                                <input type="password" placeholder="******" value="" name="us_pass" id="us_pass" class="form-control">
+                                <span class="help-block small">Twoje mocne hasło</span>
                             </div>
                             <div>
                                 <input type="submit" name="submit" value="Login" class="btn btn-accent" />

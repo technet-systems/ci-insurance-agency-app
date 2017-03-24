@@ -28,7 +28,7 @@ class Auth extends MY_Controller {
     * 
     */
     public function index() {
-        $dashboard = 'dashboard'; // Final controler after successful login
+        $dashboard = 'dashboard/monitoring'; // Final controler after successful login
         
         if($this->auth_m->loggedin()) { // Check if user is logged in
             redirect($dashboard); // Redirect to dashboard
@@ -41,12 +41,12 @@ class Auth extends MY_Controller {
                 } else {
                     $this->session->set_flashdata('error', 'Niepoprawny e-mail i/lub hasło!'); // Set flash message to the user
                     $this->twig->addGlobal('session', $this->session);
-                    redirect('auth'); // Redirect to login
+                    redirect(); // Redirect to login
                 }
             }
         }
         $this->twig->addGlobal('session', $this->session);
-        $this->twig->display('modal/login_v', $this->data);
+        $this->twig->display('modal/login', $this->data);
         //$this->load->view('sign-in_v', $this->data);
     }
     
@@ -54,16 +54,4 @@ class Auth extends MY_Controller {
         $this->session->sess_destroy();
         redirect();
     }
-    
-    public function flash()
-	{
-		$this->session->set_flashdata('test_sess', 'Hello Session');
-                
-		redirect('auth/flash_test');
-	}
-	public function flash_test()
-	{
-		$this->twig->addGlobal('session', $this->session);
-		$this->twig->display('session_sample/flash');
-	}
 }

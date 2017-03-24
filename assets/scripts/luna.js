@@ -44,4 +44,24 @@ $(document).ready(function () {
         var hpanel = $(event.target).closest('div.panel');
         hpanel.remove();
     });
+    
+    // Rozwijanie bocznego menu w zależności od pierwszego segmentu URL'a
+    var pathName = window.location.pathname;
+    var controlerName = pathName.split('/')[2];
+    var methodName = pathName.split('/')[3];
+
+
+    if(controlerName === 'dashboard') {
+        $('#dashboard-menu').addClass('active');
+        if(methodName === 'monitoring') {
+            $('#dashboard-monitoring-menu').addClass('active');
+        }
+    } else if(controlerName === 'customer') {
+        $('#customer-menu').addClass('active');
+        $('#customer-submenu').addClass('in');
+        if(methodName === 'add') {
+            $('#customer-add-submenu').addClass('active');
+        }
+    } 
+    // /.Rozwijanie bocznego menu w zależności od pierwszego segmentu URL'a
 });

@@ -32,6 +32,11 @@ class MY_Controller extends CI_Controller {
         
         $this->load->model('auth_m');
         
+        // Pobranie danych konfiguracyjnych aplikacji
+        $this->data['app_name'] = config_item('app_name');
+        $this->data['app_ver'] = config_item('app_ver');
+        $this->data['app_description'] = config_item('app_description');
+        
         // Dodatkowe zabezpieczenie logowania
         $exception_uris = [
             'auth',
@@ -40,7 +45,7 @@ class MY_Controller extends CI_Controller {
         
         if(in_array(uri_string(), $exception_uris) == FALSE) {
             if($this->auth_m->loggedin() == FALSE) {
-                $this->session->set_flashdata('error', 'Brak uwierzytelnienia, zaloguj się ponownie.'); // Set flash message to the user
+                $this->session->set_flashdata('error', 'Wylogowano użytkownika, zaloguj się ponownie.'); // Set flash message to the user
                 redirect('auth');
             } else {
                 foreach ($this->session->userdata as $key => $value) { // Za pomocą pętli dodajemy wszystkie dane logowania

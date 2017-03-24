@@ -29,7 +29,7 @@ class Twig
 	 * @var array Functions to add to Twig
 	 */
 	private $functions_asis = [
-		'base_url', 'site_url', 'validation_errors'
+		'base_url', 'site_url', 'validation_errors', 'dump'
 	];
 
 	/**
