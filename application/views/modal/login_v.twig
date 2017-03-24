@@ -25,8 +25,12 @@
                         </small>
                     </div>
                 </div>
-
-                {{ validation_errors('<div class="panel panel-filled panel-c-danger"><div class="panel-heading">', '</div></div>') }}
+                
+                {{ validation_errors('<div class="panel panel-filled panel-c-danger"><div class="panel-heading">', '</div></div>') | raw}}
+                
+                {% if session.flashdata.error == TRUE %}
+                    <div class="panel panel-filled panel-c-danger"><div class="panel-heading">{{ session.flashdata.error }}</div></div>
+                {% endif %}
                 
                 <div class="panel panel-filled">
                     <div class="panel-body">

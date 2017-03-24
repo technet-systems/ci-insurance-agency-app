@@ -13,7 +13,8 @@
 
 * [x] user authentication [Uwierzytelnianie](https://pl.wikipedia.org/wiki/Uwierzytelnianie) - [2017-03-16 ~ 2017-03-20]
 * [x] database tables [2017-03-20 ~ 2017-03-21]
-* [ ] adding layout assets [2017-03-21 ~]
+* [x] adding layout assets [2017-03-21 ~ 2017-03-24]
+* [ ] creating layout menu & dashboard view [2017-03-24 ~ ]
 
 ## Change Log:
 

@@ -40,16 +40,30 @@ class Auth extends MY_Controller {
                     redirect($dashboard); // Redirect to dashboard
                 } else {
                     $this->session->set_flashdata('error', 'Niepoprawny e-mail i/lub hasło!'); // Set flash message to the user
-                    redirect('', 'refresh'); // Redirect to login
+                    $this->twig->addGlobal('session', $this->session);
+                    redirect('auth'); // Redirect to login
                 }
             }
         }
-        
-        $this->twig->parse('modal/login_v.twig', $this->data);
+        $this->twig->addGlobal('session', $this->session);
+        $this->twig->display('modal/login_v', $this->data);
+        //$this->load->view('sign-in_v', $this->data);
     }
     
     public function logout() {
         $this->session->sess_destroy();
         redirect();
     }
+    
+    public function flash()
+	{
+		$this->session->set_flashdata('test_sess', 'Hello Session');
+                
+		redirect('auth/flash_test');
+	}
+	public function flash_test()
+	{
+		$this->twig->addGlobal('session', $this->session);
+		$this->twig->display('session_sample/flash');
+	}
 }

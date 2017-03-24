@@ -25,10 +25,9 @@ class Dashboard extends MY_Controller {
         echo anchor('dashboard/delete', 'delete');
         echo '<br />';
         echo anchor('dashboard/select', 'select');
-         * 
-         */
+        */
 
-	$this->twig->parse('modal/login_v.twig', $this->data);
+	$this->twig->display('modal/login_v', $this->data);
     }
     
     public function create() {
