@@ -31,7 +31,14 @@ class __TwigTemplate_f16592aa244ae6b968077cdb08a6b2aacd17755f468e2be1ebfa4e8e3a6
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900' rel='stylesheet' type='text/css'>
 
     <!-- Page title -->
-    <title>LUNA | Responsive Admin Theme</title>
+    <title>";
+        // line 11
+        echo twig_escape_filter($this->env, (isset($context["app_name"]) ? $context["app_name"] : null), "html", null, true);
+        echo " ";
+        echo twig_escape_filter($this->env, (isset($context["app_ver"]) ? $context["app_ver"] : null), "html", null, true);
+        echo " | ";
+        echo twig_escape_filter($this->env, (isset($context["app_description"]) ? $context["app_description"] : null), "html", null, true);
+        echo "</title>
 
     <!-- Vendor styles -->
     ";
@@ -147,9 +154,14 @@ class __TwigTemplate_f16592aa244ae6b968077cdb08a6b2aacd17755f468e2be1ebfa4e8e3a6
         return "modal_layout.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  140 => 40,  137 => 39,  134 => 38,  128 => 35,  124 => 34,  119 => 33,  116 => 32,  111 => 29,  105 => 25,  101 => 24,  97 => 23,  92 => 22,  89 => 21,  83 => 17,  79 => 16,  74 => 15,  71 => 14,  64 => 42,  62 => 38,  59 => 37,  57 => 32,  53 => 30,  51 => 29,  47 => 27,  45 => 21,  41 => 19,  39 => 14,  24 => 1,);
+        return array (  147 => 40,  144 => 39,  141 => 38,  135 => 35,  131 => 34,  126 => 33,  123 => 32,  118 => 29,  112 => 25,  108 => 24,  104 => 23,  99 => 22,  96 => 21,  90 => 17,  86 => 16,  81 => 15,  78 => 14,  71 => 42,  69 => 38,  66 => 37,  64 => 32,  60 => 30,  58 => 29,  54 => 27,  52 => 21,  48 => 19,  46 => 14,  36 => 11,  24 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -172,7 +184,7 @@ class __TwigTemplate_f16592aa244ae6b968077cdb08a6b2aacd17755f468e2be1ebfa4e8e3a6
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900' rel='stylesheet' type='text/css'>
 
     <!-- Page title -->
-    <title>LUNA | Responsive Admin Theme</title>
+    <title>{{ app_name }} {{ app_ver }} | {{ app_description }}</title>
 
     <!-- Vendor styles -->
     {% block vendor_stylesheets %}

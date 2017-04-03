@@ -7,6 +7,8 @@
 * [dump_helper: functions to dump variables to the screen, in a nicley formatted manner](https://gist.github.com/accentinteractive/3838495)
 * [CodeIgniter-MY_Model](https://github.com/avenirer/CodeIgniter-MY_Model)
 * [CodeIgniter Simple and Secure Twig](https://github.com/kenjis/codeigniter-ss-twig)
+* [X-editable](https://github.com/vitalets/x-editable)
+* [jQuery Validation Plugin - Form validation made easy](https://github.com/jquery-validation/jquery-validation)
 
 
 ## Features:
@@ -15,7 +17,8 @@
 * [x] database tables [2017-03-20 ~ 2017-03-21]
 * [x] adding layout assets [2017-03-21 ~ 2017-03-24]
 * [x] creating layout menu & dashboard view [2017-03-24 ~ 2017-03-24]
-* [ ] adding customers using jQuery AJAX [2017-03-24 ~]
+* [x] adding customers using jQuery AJAX [2017-03-24 ~ 2017-04-03]
+* [ ] adding customer details [2017-04-03 ~]
 
 ## Change Log:
 
