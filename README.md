@@ -20,6 +20,7 @@
 * [x] adding customers using jQuery AJAX [2017-03-24 ~ 2017-04-03]
 * [ ] adding insurances using jQuery AJAX [2017-04-03 ~]
 
+
 ## Change Log:
 
 * X.X.X (XXXX-XX-XX)
