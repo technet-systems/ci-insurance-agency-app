@@ -15,6 +15,7 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
             'body' => array($this, 'block_body'),
             'vendor_scripts' => array($this, 'block_vendor_scripts'),
             'app_scripts' => array($this, 'block_app_scripts'),
+            'jq_scripts' => array($this, 'block_jq_scripts'),
         );
     }
 
@@ -44,13 +45,13 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
     ";
         // line 14
         $this->displayBlock('vendor_stylesheets', $context, $blocks);
-        // line 20
+        // line 21
         echo "
     <!-- App styles -->
     ";
-        // line 22
+        // line 23
         $this->displayBlock('app_stylesheets', $context, $blocks);
-        // line 28
+        // line 29
         echo "</head>
 
 <body>
@@ -71,11 +72,11 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
                 </div>
                 <a class=\"navbar-brand\" href=\"index.html\">
                     ";
-        // line 47
+        // line 48
         echo twig_escape_filter($this->env, twig_upper_filter($this->env, (isset($context["app_name"]) ? $context["app_name"] : null)), "html", null, true);
         echo "
                     <span>";
-        // line 48
+        // line 49
         echo twig_escape_filter($this->env, (isset($context["app_ver"]) ? $context["app_ver"] : null), "html", null, true);
         echo "</span>
                 </a>
@@ -92,15 +93,15 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
                 <ul class=\"nav navbar-nav navbar-right\">
                     <li class=\" profil-link\">
                         <a href=\"";
-        // line 62
+        // line 63
         echo twig_escape_filter($this->env, base_url("auth/logout"), "html", null, true);
         echo "\">
                             <span class=\"profile-address\">Wyloguj: ";
-        // line 63
+        // line 64
         echo twig_escape_filter($this->env, (isset($context["us_email"]) ? $context["us_email"] : null), "html", null, true);
         echo "</span>
                             <img src=\"";
-        // line 64
+        // line 65
         echo twig_escape_filter($this->env, base_url("assets/images/profile.jpg"), "html", null, true);
         echo "\" class=\"img-circle\" alt=\"\">
                         </a>
@@ -120,7 +121,7 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
                 </li>
                 <li id=\"dashboard-monitoring-menu\">
                     <a href=\"";
-        // line 81
+        // line 82
         echo twig_escape_filter($this->env, base_url("dashboard/monitoring"), "html", null, true);
         echo "\">Monitoring</a>
                 </li>
@@ -128,15 +129,18 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
                 <li class=\"nav-category\">
                     Praca
                 </li>
-                <li id=\"customer-menu\">
-                    <a href=\"#customer-submenu\" data-toggle=\"collapse\" aria-expanded=\"false\">
+                <li id=\"client-menu\">
+                    <a class=\"collapsed\" href=\"#client-submenu\" data-toggle=\"collapse\" aria-expanded=\"false\">
                         Klienci<span class=\"sub-nav-icon\"> <i class=\"stroke-arrow\"></i> </span>
                     </a>
-                    <ul id=\"customer-submenu\" class=\"nav nav-second collapse\">
-                        <li><a href=\"customerList.html\">Lista</a></li>
-                        <li id=\"customer-add-submenu\"><a href=\"";
+                    <ul id=\"client-submenu\" class=\"nav nav-second collapse\" aria-expanded=\"false\">
+                        <li id=\"client-all-submenu\"><a href=\"";
         // line 93
-        echo twig_escape_filter($this->env, base_url("customer/add"), "html", null, true);
+        echo twig_escape_filter($this->env, base_url("client/all"), "html", null, true);
+        echo "\">Lista</a></li>
+                        <li id=\"client-add-submenu\"><a href=\"";
+        // line 94
+        echo twig_escape_filter($this->env, base_url("client/add"), "html", null, true);
         echo "\">Dodaj</a></li>
                     </ul>
                 </li>
@@ -205,159 +209,30 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
     <!-- End navigation-->
 
 ";
-        // line 160
-        $this->displayBlock('body', $context, $blocks);
         // line 161
+        $this->displayBlock('body', $context, $blocks);
+        // line 162
         echo "
 <!-- Vendor scripts -->
 ";
-        // line 163
+        // line 164
         $this->displayBlock('vendor_scripts', $context, $blocks);
-        // line 173
+        // line 177
         echo "
 <!-- App scripts -->
 ";
-        // line 175
+        // line 179
         $this->displayBlock('app_scripts', $context, $blocks);
-        // line 178
+        // line 182
         echo "
 <script>
     \$(document).ready(function () {
 
-
-        // Sparkline charts
-        var sparklineCharts = function () {
-            \$(\".sparkline\").sparkline([20, 34, 43, 43, 35, 44, 32, 44, 52, 45], {
-                type: 'line',
-                lineColor: '#FFFFFF',
-                lineWidth: 3,
-                fillColor: '#404652',
-                height: 47,
-                width: '100%'
-            });
-
-            \$(\".sparkline7\").sparkline([10, 34, 13, 33, 35, 24, 32, 24, 52, 35], {
-                type: 'line',
-                lineColor: '#FFFFFF',
-                lineWidth: 3,
-                fillColor: '#f7af3e',
-                height: 75,
-                width: '100%'
-            });
-
-            \$(\".sparkline1\").sparkline([0, 6, 8, 3, 2, 4, 3, 4, 9, 5, 3, 4, 4, 5, 1, 6, 7, 15, 6, 4, 0], {
-                type: 'line',
-                lineColor: '#2978BB',
-                lineWidth: 3,
-                fillColor: '#2978BB',
-                height: 170,
-                width: '100%'
-            });
-
-            \$(\".sparkline3\").sparkline([-8, 2, 4, 3, 5, 4, 3, 5, 5, 6, 3, 9, 7, 3, 5, 6, 9, 5, 6, 7, 2, 3, 9, 6, 6, 7, 8, 10, 15, 16, 17, 15], {
-
-                type: 'line',
-                lineColor: '#fff',
-                lineWidth: 3,
-                fillColor: '#393D47',
-                height: 70,
-                width: '100%'
-            });
-
-            \$(\".sparkline5\").sparkline([0, 6, 8, 3, 2, 4, 3, 4, 9, 5, 3, 4, 4, 5], {
-                type: 'line',
-                lineColor: '#f7af3e',
-                lineWidth: 2,
-                fillColor: '#2F323B',
-                height: 20,
-                width: '100%'
-            });
-            \$(\".sparkline6\").sparkline([0, 1, 4, 2, 2, 4, 1, 4, 3, 2, 3, 4, 4, 2, 4, 2, 1, 3], {
-                type: 'bar',
-                barColor: '#f7af3e',
-                height: 20,
-                width: '100%'
-            });
-
-            \$(\".sparkline8\").sparkline([4, 2], {
-                type: 'pie',
-                sliceColors: ['#f7af3e', '#404652']
-            });
-            \$(\".sparkline9\").sparkline([3, 2], {
-                type: 'pie',
-                sliceColors: ['#f7af3e', '#404652']
-            });
-            \$(\".sparkline10\").sparkline([4, 1], {
-                type: 'pie',
-                sliceColors: ['#f7af3e', '#404652']
-            });
-            \$(\".sparkline11\").sparkline([1, 3], {
-                type: 'pie',
-                sliceColors: ['#f7af3e', '#404652']
-            });
-            \$(\".sparkline12\").sparkline([3, 5], {
-                type: 'pie',
-                sliceColors: ['#f7af3e', '#404652']
-            });
-            \$(\".sparkline13\").sparkline([6, 2], {
-                type: 'pie',
-                sliceColors: ['#f7af3e', '#404652']
-            });
-        };
-
-        var sparkResize;
-
-        // Resize sparkline charts on window resize
-        \$(window).resize(function () {
-            clearTimeout(sparkResize);
-            sparkResize = setTimeout(sparklineCharts, 100);
-        });
-
-        // Run sparkline
-        sparklineCharts();
-
-
-        // Flot charts data and options
-        var data1 = [ [0, 16], [1, 24], [2, 11], [3, 7], [4, 10], [5, 15], [6, 24], [7, 30] ];
-        var data2 = [ [0, 26], [1, 44], [2, 31], [3, 27], [4, 36], [5, 46], [6, 56], [7, 66] ];
-
-        var chartUsersOptions = {
-            series: {
-                splines: {
-                    show: true,
-                    tension: 0.4,
-                    lineWidth: 1,
-                    fill: 1
-
-                }
-
-            },
-            grid: {
-                tickColor: \"#404652\",
-                borderWidth: 0,
-                borderColor: '#404652',
-                color: '#404652'
-            },
-            colors: [ \"#f7af3e\",\"#DE9536\"]
-        };
-
-        \$.plot(\$(\"#flot-line-chart\"), [data2, data1], chartUsersOptions);
-
-
-        // Run toastr notification with Welcome message
-        setTimeout(function(){
-            toastr.options = {
-                \"positionClass\": \"toast-top-right\",
-                \"closeButton\": true,
-                \"progressBar\": true,
-                \"showEasing\": \"swing\",
-                \"timeOut\": \"6000\"
-            };
-            toastr.warning('<strong>You entered to LUNA</strong> <br/><small>Premium admin theme with Dark UI style. </small>');
-        },1600)
-
-
-    });
+    ";
+        // line 186
+        $this->displayBlock('jq_scripts', $context, $blocks);
+        // line 189
+        echo "    });
 </script>
 
 </body>
@@ -384,82 +259,106 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
         // line 18
         echo twig_escape_filter($this->env, base_url("assets/vendor/toastr/toastr.min.css"), "html", null, true);
         echo "\"/>
+    <link rel=\"stylesheet\" href=\"";
+        // line 19
+        echo twig_escape_filter($this->env, base_url("assets/vendor/bootstrap3-editable/css/bootstrap-editable.css"), "html", null, true);
+        echo "\"/>
     ";
     }
 
-    // line 22
+    // line 23
     public function block_app_stylesheets($context, array $blocks = array())
     {
-        // line 23
+        // line 24
         echo "    <link rel=\"stylesheet\" href=\"";
         echo twig_escape_filter($this->env, base_url("assets/styles/pe-icons/pe-icon-7-stroke.css"), "html", null, true);
         echo "\"/>
     <link rel=\"stylesheet\" href=\"";
-        // line 24
+        // line 25
         echo twig_escape_filter($this->env, base_url("assets/styles/pe-icons/helper.css"), "html", null, true);
         echo "\"/>
     <link rel=\"stylesheet\" href=\"";
-        // line 25
+        // line 26
         echo twig_escape_filter($this->env, base_url("assets/styles/stroke-icons/style.css"), "html", null, true);
         echo "\"/>
     <link rel=\"stylesheet\" href=\"";
-        // line 26
+        // line 27
         echo twig_escape_filter($this->env, base_url("assets/styles/style.css"), "html", null, true);
         echo "\">
     ";
     }
 
-    // line 160
+    // line 161
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 163
+    // line 164
     public function block_vendor_scripts($context, array $blocks = array())
     {
-        // line 164
+        // line 165
         echo "<script src=\"";
         echo twig_escape_filter($this->env, base_url("assets/vendor/pacejs/pace.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 165
+        // line 166
         echo twig_escape_filter($this->env, base_url("assets/vendor/jquery/dist/jquery.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 166
+        // line 167
         echo twig_escape_filter($this->env, base_url("assets/vendor/bootstrap/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 167
+        // line 168
         echo twig_escape_filter($this->env, base_url("assets/vendor/toastr/toastr.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 168
+        // line 169
         echo twig_escape_filter($this->env, base_url("assets/vendor/sparkline/index.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 169
+        // line 170
         echo twig_escape_filter($this->env, base_url("assets/vendor/flot/jquery.flot.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 170
+        // line 171
         echo twig_escape_filter($this->env, base_url("assets/vendor/flot/jquery.flot.resize.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 171
+        // line 172
         echo twig_escape_filter($this->env, base_url("assets/vendor/flot/jquery.flot.spline.js"), "html", null, true);
+        echo "\"></script>
+<script src=\"";
+        // line 173
+        echo twig_escape_filter($this->env, base_url("assets/vendor/bootstrap3-editable/js/bootstrap-editable.min.js"), "html", null, true);
+        echo "\"></script>
+<script src=\"";
+        // line 174
+        echo twig_escape_filter($this->env, base_url("assets/vendor/jquery-validation/jquery.validate.min.js"), "html", null, true);
+        echo "\"></script>
+<script src=\"";
+        // line 175
+        echo twig_escape_filter($this->env, base_url("assets/vendor/jquery-validation/localization/messages_pl.min.js"), "html", null, true);
         echo "\"></script>
 ";
     }
 
-    // line 175
+    // line 179
     public function block_app_scripts($context, array $blocks = array())
     {
-        // line 176
+        // line 180
         echo "<script src=\"";
         echo twig_escape_filter($this->env, base_url("assets/scripts/luna.js"), "html", null, true);
         echo "\"></script>
 ";
+    }
+
+    // line 186
+    public function block_jq_scripts($context, array $blocks = array())
+    {
+        // line 187
+        echo "        
+    ";
     }
 
     public function getTemplateName()
@@ -474,7 +373,7 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
 
     public function getDebugInfo()
     {
-        return array (  459 => 176,  456 => 175,  450 => 171,  446 => 170,  442 => 169,  438 => 168,  434 => 167,  430 => 166,  426 => 165,  421 => 164,  418 => 163,  413 => 160,  407 => 26,  403 => 25,  399 => 24,  394 => 23,  391 => 22,  385 => 18,  381 => 17,  377 => 16,  372 => 15,  369 => 14,  223 => 178,  221 => 175,  217 => 173,  215 => 163,  211 => 161,  209 => 160,  139 => 93,  124 => 81,  104 => 64,  100 => 63,  96 => 62,  79 => 48,  75 => 47,  54 => 28,  52 => 22,  48 => 20,  46 => 14,  36 => 11,  24 => 1,);
+        return array (  360 => 187,  357 => 186,  350 => 180,  347 => 179,  341 => 175,  337 => 174,  333 => 173,  329 => 172,  325 => 171,  321 => 170,  317 => 169,  313 => 168,  309 => 167,  305 => 166,  300 => 165,  297 => 164,  292 => 161,  286 => 27,  282 => 26,  278 => 25,  273 => 24,  270 => 23,  264 => 19,  260 => 18,  256 => 17,  252 => 16,  247 => 15,  244 => 14,  235 => 189,  233 => 186,  227 => 182,  225 => 179,  221 => 177,  219 => 164,  215 => 162,  213 => 161,  143 => 94,  139 => 93,  125 => 82,  105 => 65,  101 => 64,  97 => 63,  80 => 49,  76 => 48,  55 => 29,  53 => 23,  49 => 21,  47 => 14,  37 => 11,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -505,6 +404,7 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
     <link rel=\"stylesheet\" href=\"{{ base_url('assets/vendor/animate.css/animate.css') }}\"/>
     <link rel=\"stylesheet\" href=\"{{ base_url('assets/vendor/bootstrap/css/bootstrap.css') }}\"/>
     <link rel=\"stylesheet\" href=\"{{ base_url('assets/vendor/toastr/toastr.min.css') }}\"/>
+    <link rel=\"stylesheet\" href=\"{{ base_url('assets/vendor/bootstrap3-editable/css/bootstrap-editable.css') }}\"/>
     {% endblock %}
 
     <!-- App styles -->
@@ -573,13 +473,13 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
                 <li class=\"nav-category\">
                     Praca
                 </li>
-                <li id=\"customer-menu\">
-                    <a href=\"#customer-submenu\" data-toggle=\"collapse\" aria-expanded=\"false\">
+                <li id=\"client-menu\">
+                    <a class=\"collapsed\" href=\"#client-submenu\" data-toggle=\"collapse\" aria-expanded=\"false\">
                         Klienci<span class=\"sub-nav-icon\"> <i class=\"stroke-arrow\"></i> </span>
                     </a>
-                    <ul id=\"customer-submenu\" class=\"nav nav-second collapse\">
-                        <li><a href=\"customerList.html\">Lista</a></li>
-                        <li id=\"customer-add-submenu\"><a href=\"{{ base_url('customer/add') }}\">Dodaj</a></li>
+                    <ul id=\"client-submenu\" class=\"nav nav-second collapse\" aria-expanded=\"false\">
+                        <li id=\"client-all-submenu\"><a href=\"{{ base_url('client/all') }}\">Lista</a></li>
+                        <li id=\"client-add-submenu\"><a href=\"{{ base_url('client/add') }}\">Dodaj</a></li>
                     </ul>
                 </li>
                 <li>
@@ -658,6 +558,9 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
 <script src=\"{{ base_url('assets/vendor/flot/jquery.flot.min.js') }}\"></script>
 <script src=\"{{ base_url('assets/vendor/flot/jquery.flot.resize.min.js') }}\"></script>
 <script src=\"{{ base_url('assets/vendor/flot/jquery.flot.spline.js') }}\"></script>
+<script src=\"{{ base_url('assets/vendor/bootstrap3-editable/js/bootstrap-editable.min.js') }}\"></script>
+<script src=\"{{ base_url('assets/vendor/jquery-validation/jquery.validate.min.js') }}\"></script>
+<script src=\"{{ base_url('assets/vendor/jquery-validation/localization/messages_pl.min.js') }}\"></script>
 {% endblock %}
 
 <!-- App scripts -->
@@ -668,139 +571,9 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
 <script>
     \$(document).ready(function () {
 
-
-        // Sparkline charts
-        var sparklineCharts = function () {
-            \$(\".sparkline\").sparkline([20, 34, 43, 43, 35, 44, 32, 44, 52, 45], {
-                type: 'line',
-                lineColor: '#FFFFFF',
-                lineWidth: 3,
-                fillColor: '#404652',
-                height: 47,
-                width: '100%'
-            });
-
-            \$(\".sparkline7\").sparkline([10, 34, 13, 33, 35, 24, 32, 24, 52, 35], {
-                type: 'line',
-                lineColor: '#FFFFFF',
-                lineWidth: 3,
-                fillColor: '#f7af3e',
-                height: 75,
-                width: '100%'
-            });
-
-            \$(\".sparkline1\").sparkline([0, 6, 8, 3, 2, 4, 3, 4, 9, 5, 3, 4, 4, 5, 1, 6, 7, 15, 6, 4, 0], {
-                type: 'line',
-                lineColor: '#2978BB',
-                lineWidth: 3,
-                fillColor: '#2978BB',
-                height: 170,
-                width: '100%'
-            });
-
-            \$(\".sparkline3\").sparkline([-8, 2, 4, 3, 5, 4, 3, 5, 5, 6, 3, 9, 7, 3, 5, 6, 9, 5, 6, 7, 2, 3, 9, 6, 6, 7, 8, 10, 15, 16, 17, 15], {
-
-                type: 'line',
-                lineColor: '#fff',
-                lineWidth: 3,
-                fillColor: '#393D47',
-                height: 70,
-                width: '100%'
-            });
-
-            \$(\".sparkline5\").sparkline([0, 6, 8, 3, 2, 4, 3, 4, 9, 5, 3, 4, 4, 5], {
-                type: 'line',
-                lineColor: '#f7af3e',
-                lineWidth: 2,
-                fillColor: '#2F323B',
-                height: 20,
-                width: '100%'
-            });
-            \$(\".sparkline6\").sparkline([0, 1, 4, 2, 2, 4, 1, 4, 3, 2, 3, 4, 4, 2, 4, 2, 1, 3], {
-                type: 'bar',
-                barColor: '#f7af3e',
-                height: 20,
-                width: '100%'
-            });
-
-            \$(\".sparkline8\").sparkline([4, 2], {
-                type: 'pie',
-                sliceColors: ['#f7af3e', '#404652']
-            });
-            \$(\".sparkline9\").sparkline([3, 2], {
-                type: 'pie',
-                sliceColors: ['#f7af3e', '#404652']
-            });
-            \$(\".sparkline10\").sparkline([4, 1], {
-                type: 'pie',
-                sliceColors: ['#f7af3e', '#404652']
-            });
-            \$(\".sparkline11\").sparkline([1, 3], {
-                type: 'pie',
-                sliceColors: ['#f7af3e', '#404652']
-            });
-            \$(\".sparkline12\").sparkline([3, 5], {
-                type: 'pie',
-                sliceColors: ['#f7af3e', '#404652']
-            });
-            \$(\".sparkline13\").sparkline([6, 2], {
-                type: 'pie',
-                sliceColors: ['#f7af3e', '#404652']
-            });
-        };
-
-        var sparkResize;
-
-        // Resize sparkline charts on window resize
-        \$(window).resize(function () {
-            clearTimeout(sparkResize);
-            sparkResize = setTimeout(sparklineCharts, 100);
-        });
-
-        // Run sparkline
-        sparklineCharts();
-
-
-        // Flot charts data and options
-        var data1 = [ [0, 16], [1, 24], [2, 11], [3, 7], [4, 10], [5, 15], [6, 24], [7, 30] ];
-        var data2 = [ [0, 26], [1, 44], [2, 31], [3, 27], [4, 36], [5, 46], [6, 56], [7, 66] ];
-
-        var chartUsersOptions = {
-            series: {
-                splines: {
-                    show: true,
-                    tension: 0.4,
-                    lineWidth: 1,
-                    fill: 1
-
-                }
-
-            },
-            grid: {
-                tickColor: \"#404652\",
-                borderWidth: 0,
-                borderColor: '#404652',
-                color: '#404652'
-            },
-            colors: [ \"#f7af3e\",\"#DE9536\"]
-        };
-
-        \$.plot(\$(\"#flot-line-chart\"), [data2, data1], chartUsersOptions);
-
-
-        // Run toastr notification with Welcome message
-        setTimeout(function(){
-            toastr.options = {
-                \"positionClass\": \"toast-top-right\",
-                \"closeButton\": true,
-                \"progressBar\": true,
-                \"showEasing\": \"swing\",
-                \"timeOut\": \"6000\"
-            };
-            toastr.warning('<strong>You entered to LUNA</strong> <br/><small>Premium admin theme with Dark UI style. </small>');
-        },1600)
-
-
+    {% block jq_scripts %}
+        
+    {% endblock %}
     });
 </script>
 

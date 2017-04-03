@@ -56,11 +56,13 @@ $(document).ready(function () {
         if(methodName === 'monitoring') {
             $('#dashboard-monitoring-menu').addClass('active');
         }
-    } else if(controlerName === 'customer') {
-        $('#customer-menu').addClass('active');
-        $('#customer-submenu').addClass('in');
+    } else if(controlerName === 'client') {
+        $('#client-menu').addClass('active');
+        $('#client-submenu').addClass('in');
         if(methodName === 'add') {
-            $('#customer-add-submenu').addClass('active');
+            $('#client-add-submenu').addClass('active');
+        } else if(methodName === 'all') {
+            $('#client-all-submenu').addClass('active');
         }
     } 
     // /.Rozwijanie bocznego menu w zależności od pierwszego segmentu URL'a

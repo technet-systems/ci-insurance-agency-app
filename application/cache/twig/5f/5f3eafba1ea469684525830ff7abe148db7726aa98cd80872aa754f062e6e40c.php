@@ -1,14 +1,14 @@
 <?php
 
-/* customer/add.twig */
-class __TwigTemplate_10156c39e247ba8a7d16c20d5a6afd76b45ccfd86ce535dc0f0d98537cbb3a08 extends Twig_Template
+/* client/add.twig */
+class __TwigTemplate_f9842057d9c303a70579596e8a4c26cbe9868a644e2f9bf5137a64938fa2c791 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("base_layout.twig", "customer/add.twig", 1);
+        $this->parent = $this->loadTemplate("base_layout.twig", "client/add.twig", 1);
         $this->blocks = array(
             'body' => array($this, 'block_body'),
             'jq_scripts' => array($this, 'block_jq_scripts'),
@@ -80,7 +80,7 @@ class __TwigTemplate_10156c39e247ba8a7d16c20d5a6afd76b45ccfd86ce535dc0f0d98537cb
                                     </div>
                                     <button type=\"submit\" class=\"btn btn-accent pull-right\" id=\"submit\" data-url=\"";
         // line 53
-        echo twig_escape_filter($this->env, base_url("customer/create"), "html", null, true);
+        echo twig_escape_filter($this->env, base_url("client/create"), "html", null, true);
         echo "\"><i class=\"fa fa-save\"></i> Zapisz</button>
                                 </form>
                             </div>
@@ -129,6 +129,8 @@ class __TwigTemplate_10156c39e247ba8a7d16c20d5a6afd76b45ccfd86ce535dc0f0d98537cb
                         toastr.success('<strong>Sukces! </strong> <br/><small>' + data.msg + '</small>');
                         },500
                     );
+                    
+                    \$('#customer-create').find('input:text, input:password, input:file, select, textarea').val('');
                 } else {
                 /* #TOD-1#
                     var msgs = JSON.stringify(data.msg);
@@ -159,7 +161,7 @@ class __TwigTemplate_10156c39e247ba8a7d16c20d5a6afd76b45ccfd86ce535dc0f0d98537cb
 
     public function getTemplateName()
     {
-        return "customer/add.twig";
+        return "client/add.twig";
     }
 
     public function isTraitable()
@@ -234,7 +236,7 @@ class __TwigTemplate_10156c39e247ba8a7d16c20d5a6afd76b45ccfd86ce535dc0f0d98537cb
                                     <div class=\"form-group\"><label for=\"cl_notice\" class=\"col-sm-3 control-label\">Uwagi</label>
                                         <div class=\"col-sm-9\"><textarea class=\"form-control vertical\" rows=\"3\" placeholder=\"Miejsce na notatki\" id=\"cl_notice\" name=\"cl_notice\"></textarea></div>
                                     </div>
-                                    <button type=\"submit\" class=\"btn btn-accent pull-right\" id=\"submit\" data-url=\"{{ base_url('customer/create') }}\"><i class=\"fa fa-save\"></i> Zapisz</button>
+                                    <button type=\"submit\" class=\"btn btn-accent pull-right\" id=\"submit\" data-url=\"{{ base_url('client/create') }}\"><i class=\"fa fa-save\"></i> Zapisz</button>
                                 </form>
                             </div>
                         </div>
@@ -276,6 +278,8 @@ class __TwigTemplate_10156c39e247ba8a7d16c20d5a6afd76b45ccfd86ce535dc0f0d98537cb
                         toastr.success('<strong>Sukces! </strong> <br/><small>' + data.msg + '</small>');
                         },500
                     );
+                    
+                    \$('#customer-create').find('input:text, input:password, input:file, select, textarea').val('');
                 } else {
                 /* #TOD-1#
                     var msgs = JSON.stringify(data.msg);
@@ -301,6 +305,6 @@ class __TwigTemplate_10156c39e247ba8a7d16c20d5a6afd76b45ccfd86ce535dc0f0d98537cb
 
         });
     });
-{% endblock %}", "customer/add.twig", "D:\\xampp\\htdocs\\ci-insurance-agency-app\\application\\views\\customer\\add.twig");
+{% endblock %}", "client/add.twig", "D:\\xampp\\htdocs\\ci-insurance-agency-app\\application\\views\\client\\add.twig");
     }
 }
