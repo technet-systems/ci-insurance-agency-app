@@ -60,9 +60,17 @@ $(document).ready(function () {
         $('#client-menu').addClass('active');
         $('#client-submenu').addClass('in');
         if(methodName === 'add') {
-            $('#client-add-submenu').addClass('active');
+            $('#client-submenu-add').addClass('active');
         } else if(methodName === 'all') {
-            $('#client-all-submenu').addClass('active');
+            $('#client-submenu-all').addClass('active');
+        }
+    } else if(controlerName === 'company') {
+        $('#company-menu').addClass('active');
+        $('#company-submenu').addClass('in');
+        if(methodName === 'add') {
+            $('#company-submenu-add').addClass('active');
+        } else if(methodName === 'all') {
+            $('#company-submenu-all').addClass('active');
         }
     } 
     // /.Rozwijanie bocznego menu w zależności od pierwszego segmentu URL'a

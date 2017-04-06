@@ -129,28 +129,36 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
                 <li class=\"nav-category\">
                     Praca
                 </li>
+                
                 <li id=\"client-menu\">
-                    <a class=\"collapsed\" href=\"#client-submenu\" data-toggle=\"collapse\" aria-expanded=\"false\">
-                        Klienci<span class=\"sub-nav-icon\"> <i class=\"stroke-arrow\"></i> </span>
+                    <a href=\"#client-submenu\" data-toggle=\"collapse\" aria-expanded=\"false\">
+                        Klienci <span class=\"sub-nav-icon\"> <i class=\"stroke-arrow\"></i> </span>
                     </a>
-                    <ul id=\"client-submenu\" class=\"nav nav-second collapse\" aria-expanded=\"false\">
-                        <li id=\"client-all-submenu\"><a href=\"";
-        // line 93
+                    <ul id=\"client-submenu\" class=\"nav nav-second collapse\">
+                        <li id=\"client-submenu-all\"><a href=\"";
+        // line 94
         echo twig_escape_filter($this->env, base_url("client/all"), "html", null, true);
         echo "\">Lista</a></li>
-                        <li id=\"client-add-submenu\"><a href=\"";
-        // line 94
+                        <li id=\"client-submenu-add\"><a href=\"";
+        // line 95
         echo twig_escape_filter($this->env, base_url("client/add"), "html", null, true);
         echo "\">Dodaj</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href=\"#insurance\" data-toggle=\"collapse\" aria-expanded=\"false\">
-                        Polisy<span class=\"sub-nav-icon\"> <i class=\"stroke-arrow\"></i> </span>
+                
+                <li id=\"company-menu\">
+                    <a href=\"#company-submenu\" data-toggle=\"collapse\" aria-expanded=\"false\">
+                        Polisy <span class=\"sub-nav-icon\"> <i class=\"stroke-arrow\"></i> </span>
                     </a>
-                    <ul id=\"insurance\" class=\"nav nav-second collapse\">
-                        <li><a href=\"insuranceList.html\">Lista</a></li>
-                        <li><a href=\"insuranceAdd.html\">Dodaj</a></li>
+                    <ul id=\"company-submenu\" class=\"nav nav-second collapse\">
+                        <li id=\"company-submenu-all\"><a href=\"";
+        // line 104
+        echo twig_escape_filter($this->env, base_url("company/all"), "html", null, true);
+        echo "\">Lista</a></li>
+                        <li id=\"company-submenu-add\"><a href=\"";
+        // line 105
+        echo twig_escape_filter($this->env, base_url("company/add"), "html", null, true);
+        echo "\">Dodaj</a></li>
                     </ul>
                 </li>
                 
@@ -209,29 +217,29 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
     <!-- End navigation-->
 
 ";
-        // line 161
+        // line 163
         $this->displayBlock('body', $context, $blocks);
-        // line 162
+        // line 164
         echo "
 <!-- Vendor scripts -->
 ";
-        // line 164
+        // line 166
         $this->displayBlock('vendor_scripts', $context, $blocks);
-        // line 177
+        // line 179
         echo "
 <!-- App scripts -->
 ";
-        // line 179
+        // line 181
         $this->displayBlock('app_scripts', $context, $blocks);
-        // line 182
+        // line 184
         echo "
 <script>
     \$(document).ready(function () {
 
     ";
-        // line 186
+        // line 188
         $this->displayBlock('jq_scripts', $context, $blocks);
-        // line 189
+        // line 191
         echo "    });
 </script>
 
@@ -288,75 +296,75 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
     ";
     }
 
-    // line 161
+    // line 163
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 164
+    // line 166
     public function block_vendor_scripts($context, array $blocks = array())
     {
-        // line 165
+        // line 167
         echo "<script src=\"";
         echo twig_escape_filter($this->env, base_url("assets/vendor/pacejs/pace.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 166
+        // line 168
         echo twig_escape_filter($this->env, base_url("assets/vendor/jquery/dist/jquery.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 167
+        // line 169
         echo twig_escape_filter($this->env, base_url("assets/vendor/bootstrap/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 168
+        // line 170
         echo twig_escape_filter($this->env, base_url("assets/vendor/toastr/toastr.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 169
+        // line 171
         echo twig_escape_filter($this->env, base_url("assets/vendor/sparkline/index.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 170
+        // line 172
         echo twig_escape_filter($this->env, base_url("assets/vendor/flot/jquery.flot.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 171
+        // line 173
         echo twig_escape_filter($this->env, base_url("assets/vendor/flot/jquery.flot.resize.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 172
+        // line 174
         echo twig_escape_filter($this->env, base_url("assets/vendor/flot/jquery.flot.spline.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 173
+        // line 175
         echo twig_escape_filter($this->env, base_url("assets/vendor/bootstrap3-editable/js/bootstrap-editable.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 174
+        // line 176
         echo twig_escape_filter($this->env, base_url("assets/vendor/jquery-validation/jquery.validate.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 175
+        // line 177
         echo twig_escape_filter($this->env, base_url("assets/vendor/jquery-validation/localization/messages_pl.min.js"), "html", null, true);
         echo "\"></script>
 ";
     }
 
-    // line 179
+    // line 181
     public function block_app_scripts($context, array $blocks = array())
     {
-        // line 180
+        // line 182
         echo "<script src=\"";
         echo twig_escape_filter($this->env, base_url("assets/scripts/luna.js"), "html", null, true);
         echo "\"></script>
 ";
     }
 
-    // line 186
+    // line 188
     public function block_jq_scripts($context, array $blocks = array())
     {
-        // line 187
+        // line 189
         echo "        
     ";
     }
@@ -373,7 +381,7 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
 
     public function getDebugInfo()
     {
-        return array (  360 => 187,  357 => 186,  350 => 180,  347 => 179,  341 => 175,  337 => 174,  333 => 173,  329 => 172,  325 => 171,  321 => 170,  317 => 169,  313 => 168,  309 => 167,  305 => 166,  300 => 165,  297 => 164,  292 => 161,  286 => 27,  282 => 26,  278 => 25,  273 => 24,  270 => 23,  264 => 19,  260 => 18,  256 => 17,  252 => 16,  247 => 15,  244 => 14,  235 => 189,  233 => 186,  227 => 182,  225 => 179,  221 => 177,  219 => 164,  215 => 162,  213 => 161,  143 => 94,  139 => 93,  125 => 82,  105 => 65,  101 => 64,  97 => 63,  80 => 49,  76 => 48,  55 => 29,  53 => 23,  49 => 21,  47 => 14,  37 => 11,  25 => 1,);
+        return array (  368 => 189,  365 => 188,  358 => 182,  355 => 181,  349 => 177,  345 => 176,  341 => 175,  337 => 174,  333 => 173,  329 => 172,  325 => 171,  321 => 170,  317 => 169,  313 => 168,  308 => 167,  305 => 166,  300 => 163,  294 => 27,  290 => 26,  286 => 25,  281 => 24,  278 => 23,  272 => 19,  268 => 18,  264 => 17,  260 => 16,  255 => 15,  252 => 14,  243 => 191,  241 => 188,  235 => 184,  233 => 181,  229 => 179,  227 => 166,  223 => 164,  221 => 163,  160 => 105,  156 => 104,  144 => 95,  140 => 94,  125 => 82,  105 => 65,  101 => 64,  97 => 63,  80 => 49,  76 => 48,  55 => 29,  53 => 23,  49 => 21,  47 => 14,  37 => 11,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -473,22 +481,24 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
                 <li class=\"nav-category\">
                     Praca
                 </li>
+                
                 <li id=\"client-menu\">
-                    <a class=\"collapsed\" href=\"#client-submenu\" data-toggle=\"collapse\" aria-expanded=\"false\">
-                        Klienci<span class=\"sub-nav-icon\"> <i class=\"stroke-arrow\"></i> </span>
+                    <a href=\"#client-submenu\" data-toggle=\"collapse\" aria-expanded=\"false\">
+                        Klienci <span class=\"sub-nav-icon\"> <i class=\"stroke-arrow\"></i> </span>
                     </a>
-                    <ul id=\"client-submenu\" class=\"nav nav-second collapse\" aria-expanded=\"false\">
-                        <li id=\"client-all-submenu\"><a href=\"{{ base_url('client/all') }}\">Lista</a></li>
-                        <li id=\"client-add-submenu\"><a href=\"{{ base_url('client/add') }}\">Dodaj</a></li>
+                    <ul id=\"client-submenu\" class=\"nav nav-second collapse\">
+                        <li id=\"client-submenu-all\"><a href=\"{{ base_url('client/all') }}\">Lista</a></li>
+                        <li id=\"client-submenu-add\"><a href=\"{{ base_url('client/add') }}\">Dodaj</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href=\"#insurance\" data-toggle=\"collapse\" aria-expanded=\"false\">
-                        Polisy<span class=\"sub-nav-icon\"> <i class=\"stroke-arrow\"></i> </span>
+                
+                <li id=\"company-menu\">
+                    <a href=\"#company-submenu\" data-toggle=\"collapse\" aria-expanded=\"false\">
+                        Polisy <span class=\"sub-nav-icon\"> <i class=\"stroke-arrow\"></i> </span>
                     </a>
-                    <ul id=\"insurance\" class=\"nav nav-second collapse\">
-                        <li><a href=\"insuranceList.html\">Lista</a></li>
-                        <li><a href=\"insuranceAdd.html\">Dodaj</a></li>
+                    <ul id=\"company-submenu\" class=\"nav nav-second collapse\">
+                        <li id=\"company-submenu-all\"><a href=\"{{ base_url('company/all') }}\">Lista</a></li>
+                        <li id=\"company-submenu-add\"><a href=\"{{ base_url('company/add') }}\">Dodaj</a></li>
                     </ul>
                 </li>
                 

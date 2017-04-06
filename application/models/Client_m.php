@@ -98,14 +98,14 @@ class Client_m extends MY_Model
             'cl_notice' => [
                 'cl_notice' => [
                     'field' => 'cl_notice',
-                    'label' => 'Telefon',
+                    'label' => 'Uwagi',
                     'rules' => 'trim'
                 ]
             ],
             'cl_process' => [
                 'cl_process' => [
                     'field' => 'cl_process',
-                    'label' => 'Telefon',
+                    'label' => '',
                     'rules' => 'trim'
                 ]
             ]

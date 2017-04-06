@@ -85,22 +85,24 @@
                 <li class="nav-category">
                     Praca
                 </li>
+                
                 <li id="client-menu">
-                    <a class="collapsed" href="#client-submenu" data-toggle="collapse" aria-expanded="false">
-                        Klienci<span class="sub-nav-icon"> <i class="stroke-arrow"></i> </span>
+                    <a href="#client-submenu" data-toggle="collapse" aria-expanded="false">
+                        Klienci <span class="sub-nav-icon"> <i class="stroke-arrow"></i> </span>
                     </a>
-                    <ul id="client-submenu" class="nav nav-second collapse" aria-expanded="false">
-                        <li id="client-all-submenu"><a href="{{ base_url('client/all') }}">Lista</a></li>
-                        <li id="client-add-submenu"><a href="{{ base_url('client/add') }}">Dodaj</a></li>
+                    <ul id="client-submenu" class="nav nav-second collapse">
+                        <li id="client-submenu-all"><a href="{{ base_url('client/all') }}">Lista</a></li>
+                        <li id="client-submenu-add"><a href="{{ base_url('client/add') }}">Dodaj</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#insurance" data-toggle="collapse" aria-expanded="false">
-                        Polisy<span class="sub-nav-icon"> <i class="stroke-arrow"></i> </span>
+                
+                <li id="company-menu">
+                    <a href="#company-submenu" data-toggle="collapse" aria-expanded="false">
+                        Polisy <span class="sub-nav-icon"> <i class="stroke-arrow"></i> </span>
                     </a>
-                    <ul id="insurance" class="nav nav-second collapse">
-                        <li><a href="insuranceList.html">Lista</a></li>
-                        <li><a href="insuranceAdd.html">Dodaj</a></li>
+                    <ul id="company-submenu" class="nav nav-second collapse">
+                        <li id="company-submenu-all"><a href="{{ base_url('company/all') }}">Lista</a></li>
+                        <li id="company-submenu-add"><a href="{{ base_url('company/add') }}">Dodaj</a></li>
                     </ul>
                 </li>
                 

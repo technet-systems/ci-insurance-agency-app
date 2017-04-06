@@ -17,8 +17,9 @@
 * [x] database tables [2017-03-20 ~ 2017-03-21]
 * [x] adding layout assets [2017-03-21 ~ 2017-03-24]
 * [x] creating layout menu & dashboard view [2017-03-24 ~ 2017-03-24]
-* [x] adding customers using jQuery AJAX [2017-03-24 ~ 2017-04-03]
-* [ ] adding insurances using jQuery AJAX [2017-04-03 ~]
+* [x] adding clients using jQuery AJAX [2017-03-24 ~ 2017-04-03]
+* [x] adding companies and products using jQuery AJAX [2017-04-03 ~ 2017-04-06]
+* [ ] adding products to clients using jQuery AJAX [2017-04-06 ~ ]
 
 
 ## Change Log:
