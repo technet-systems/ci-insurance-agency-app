@@ -148,7 +148,7 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
                 
                 <li id=\"company-menu\">
                     <a href=\"#company-submenu\" data-toggle=\"collapse\" aria-expanded=\"false\">
-                        Polisy <span class=\"sub-nav-icon\"> <i class=\"stroke-arrow\"></i> </span>
+                        Ubezpieczyciele <span class=\"sub-nav-icon\"> <i class=\"stroke-arrow\"></i> </span>
                     </a>
                     <ul id=\"company-submenu\" class=\"nav nav-second collapse\">
                         <li id=\"company-submenu-all\"><a href=\"";
@@ -494,7 +494,7 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
                 
                 <li id=\"company-menu\">
                     <a href=\"#company-submenu\" data-toggle=\"collapse\" aria-expanded=\"false\">
-                        Polisy <span class=\"sub-nav-icon\"> <i class=\"stroke-arrow\"></i> </span>
+                        Ubezpieczyciele <span class=\"sub-nav-icon\"> <i class=\"stroke-arrow\"></i> </span>
                     </a>
                     <ul id=\"company-submenu\" class=\"nav nav-second collapse\">
                         <li id=\"company-submenu-all\"><a href=\"{{ base_url('company/all') }}\">Lista</a></li>

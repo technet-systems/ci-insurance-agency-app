@@ -6,6 +6,7 @@ class Client_m extends MY_Model
         $this->table = 'clients';
         $this->primary_key = 'cl_id';
         $this->protected = ['cl_id'];
+        $this->soft_deletes = TRUE;
         
         /*$this->has_one['user'] = array(
             'foreign_model'=>'V2auth_model',

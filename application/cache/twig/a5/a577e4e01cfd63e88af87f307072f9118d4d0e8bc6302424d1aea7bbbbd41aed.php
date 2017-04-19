@@ -175,7 +175,10 @@ class __TwigTemplate_8572dbba21a448a480c43628f12a0eb7bde4ce9bf0b5d95872ec8e750ae
             echo twig_escape_filter($this->env, $this->getAttribute($context["client"], "cl_process", array()), "html", null, true);
             echo "</a></td>
                                                 <td>
-                                                    <a href=\"#\" class=\"btn btn-success btn-xs\">Szczegóły</a>
+                                                    <a href=\"";
+            // line 74
+            echo twig_escape_filter($this->env, base_url(("insurance/all/" . $this->getAttribute($context["client"], "cl_id", array()))), "html", null, true);
+            echo "\" class=\"btn btn-success btn-xs\">Szczegóły</a>
                                                     <a href=\"#\" class=\"btn btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#modalDELETE-";
             // line 75
             echo twig_escape_filter($this->env, $this->getAttribute($context["client"], "cl_id", array()), "html", null, true);
@@ -368,7 +371,7 @@ class __TwigTemplate_8572dbba21a448a480c43628f12a0eb7bde4ce9bf0b5d95872ec8e750ae
 
     public function getDebugInfo()
     {
-        return array (  273 => 125,  270 => 124,  264 => 121,  259 => 120,  256 => 119,  237 => 102,  223 => 96,  216 => 92,  212 => 91,  200 => 83,  196 => 82,  191 => 79,  181 => 75,  169 => 72,  161 => 71,  153 => 70,  145 => 69,  137 => 68,  129 => 67,  121 => 66,  116 => 65,  112 => 64,  60 => 14,  57 => 13,  49 => 9,  46 => 8,  40 => 5,  35 => 4,  32 => 3,  11 => 1,);
+        return array (  276 => 125,  273 => 124,  267 => 121,  262 => 120,  259 => 119,  240 => 102,  226 => 96,  219 => 92,  215 => 91,  203 => 83,  199 => 82,  194 => 79,  184 => 75,  180 => 74,  169 => 72,  161 => 71,  153 => 70,  145 => 69,  137 => 68,  129 => 67,  121 => 66,  116 => 65,  112 => 64,  60 => 14,  57 => 13,  49 => 9,  46 => 8,  40 => 5,  35 => 4,  32 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -454,7 +457,7 @@ class __TwigTemplate_8572dbba21a448a480c43628f12a0eb7bde4ce9bf0b5d95872ec8e750ae
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"textarea\" data-pk=\"{{ client.cl_id }}\" data-title=\"Zmiana e-mail\" data-url=\"{{ base_url('client/edit') }}\" data-name=\"cl_notice\">{{ client.cl_notice }}</a></td>
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"select\" data-pk=\"{{ client.cl_id }}\" data-title=\"Zmiana e-mail\" data-url=\"{{ base_url('client/edit') }}\" data-name=\"cl_process\" data-value=\"{{ client.cl_process }}\" data-source=\"[{'value':'Jest zgoda', 'text':'Jest zgoda'},{'value':'Brak zgody', 'text':'Brak zgody'}]\">{{ client.cl_process }}</a></td>
                                                 <td>
-                                                    <a href=\"#\" class=\"btn btn-success btn-xs\">Szczegóły</a>
+                                                    <a href=\"{{ base_url('insurance/all/' ~ client.cl_id ) }}\" class=\"btn btn-success btn-xs\">Szczegóły</a>
                                                     <a href=\"#\" class=\"btn btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#modalDELETE-{{ client.cl_id }}\"><i class=\"fa fa-trash\"></i></a>
                                                 </td>
                                             </tr>

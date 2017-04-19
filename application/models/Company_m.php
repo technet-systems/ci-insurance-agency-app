@@ -6,6 +6,7 @@ class Company_m extends MY_Model
         $this->table = 'companies';
         $this->primary_key = 'co_id';
         $this->protected = ['co_id'];
+        $this->soft_deletes = TRUE;
         
         /*$this->has_one['user'] = array(
             'foreign_model'=>'V2auth_model',
@@ -22,6 +23,12 @@ class Company_m extends MY_Model
             'foreign_key' => 'in_id'
         ];
         */
+        $this->has_many['products'] = [
+            'foreign_model'=>'Product_m',
+            'foreign_table'=>'products',
+            'foreign_key'=>'pr_co_id',
+            'local_key'=>'co_id'
+        ];
         
         parent::__construct();
     }

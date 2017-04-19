@@ -40,7 +40,10 @@ class Product extends MY_Controller {
         $this->form_validation->set_rules($this->product_m->rules['edit'][$this->input->post('name')]);
 
         if($this->form_validation->run()) {
-            $this->product_m->update(array($this->input->post('name') => $this->input->post('value')), $this->input->post('pk'));
+            $this->product_m->update(array(
+                $this->input->post('name') => $this->input->post('value'),
+                'pr_updated_by' => $this->data['us_id']
+                ), $this->input->post('pk'));
             $this->session->userdata['update'] = $this->db->last_query();
             echo json_encode(array('status' => 1, 'msg' => 'Zmieniono dane'));
         } else {
@@ -51,6 +54,9 @@ class Product extends MY_Controller {
     
     public function delete() {
         if(!is_int($this->input->post('pr_id'))) {
+            $this->product_m->update(array(
+                'pr_deleted_by' => $this->data['us_id']
+                ), $this->input->post('pr_id'));
             $this->product_m->delete($this->input->post('pr_id'));
             $this->session->userdata['delete'] = $this->db->last_query();
             echo json_encode(array('status' => 1, 'msg' => 'Usunięto dane'));

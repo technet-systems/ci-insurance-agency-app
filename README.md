@@ -9,6 +9,7 @@
 * [CodeIgniter Simple and Secure Twig](https://github.com/kenjis/codeigniter-ss-twig)
 * [X-editable](https://github.com/vitalets/x-editable)
 * [jQuery Validation Plugin - Form validation made easy](https://github.com/jquery-validation/jquery-validation)
+* [dependent-dropdown](https://github.com/kartik-v/dependent-dropdown)
 
 
 ## Features:
@@ -19,7 +20,8 @@
 * [x] creating layout menu & dashboard view [2017-03-24 ~ 2017-03-24]
 * [x] adding clients using jQuery AJAX [2017-03-24 ~ 2017-04-03]
 * [x] adding companies and products using jQuery AJAX [2017-04-03 ~ 2017-04-06]
-* [ ] adding products to clients using jQuery AJAX [2017-04-06 ~ ]
+* [x] adding products to clients using jQuery AJAX [2017-04-06 ~ 2017-04-19]
+* [ ] feeding dashboard/monitoring view with data [2017-04-19 ~ ]
 
 
 ## Change Log:

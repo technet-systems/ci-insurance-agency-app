@@ -17,6 +17,6 @@ class Dashboard extends MY_Controller {
     }
     
     public function monitoring() {
-        $this->twig->display('dashboard/monitoring', $this->data);
+        $this->twig->display('dashboard/all', $this->data);
     }
 }

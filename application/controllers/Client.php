@@ -35,7 +35,10 @@ class Client extends MY_Controller {
         $this->form_validation->set_rules($this->client_m->rules['edit'][$this->input->post('name')]);
 
         if($this->form_validation->run()) {
-            $this->client_m->update(array($this->input->post('name') => $this->input->post('value')), $this->input->post('pk'));
+            $this->client_m->update(array(
+                $this->input->post('name') => $this->input->post('value'),
+                'cl_updated_by' => $this->data['us_id']
+                ), $this->input->post('pk'));
             $this->session->userdata['update'] = $this->db->last_query();
             echo json_encode(array('status' => 1, 'msg' => 'Zmieniono dane'));
         } else {
@@ -46,6 +49,9 @@ class Client extends MY_Controller {
     
     public function delete() {
         if(!is_int($this->input->post('cl_id'))) {
+            $this->client_m->update(array(
+                'cl_deleted_by' => $this->data['us_id']
+                ), $this->input->post('cl_id'));
             $this->client_m->delete($this->input->post('cl_id'));
             $this->session->userdata['delete'] = $this->db->last_query();
             echo json_encode(array('status' => 1, 'msg' => 'Usunięto dane'));
