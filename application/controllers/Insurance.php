@@ -64,18 +64,22 @@ class Insurance extends MY_Controller {
                 // Uzyskanie nazwy Ubezpieczyciela i Polisy
                 $company = $this->company_m->get($this->input->post('in_co_id'));
                 $product = $this->product_m->get($this->input->post('in_pr_id'));
+                $client = $this->client_m->get($cl_id);
                 
                 /**
                  * Zapis do BD
                  */
                 $id = $this->insurance_m->from_form(NULL, 
                     array(
-                        'in_co_name'    => $company->co_name,
-                        'in_pr_name'    => $product->pr_name,
-                        'in_created_by' => $this->data['us_id'], 
-                        'in_link'       => $file_name, 
-                        'in_us_id'      => $this->data['us_id'], 
-                        'in_cl_id'      => $cl_id)
+                        'in_co_name'            => $company->co_name,
+                        'in_pr_name'            => $product->pr_name,
+                        'in_created_by'         => $this->data['us_id'], 
+                        'in_link'               => $file_name, 
+                        'in_link_description'   => $this->input->post('in_link_description'),
+                        'in_notice'             => $this->input->post('in_notice'),
+                        'in_process'            => $client->cl_process,
+                        'in_us_id'              => $this->data['us_id'], 
+                        'in_cl_id'              => $cl_id)
                     )
                     ->insert();
                 
@@ -90,6 +94,12 @@ class Insurance extends MY_Controller {
                     } else {
                         $in_notice = '<span style="font-style: italic; color: #DD1144;">Brak danych</span>';
                     }
+                    
+                    if($this->input->post('in_link_description') != NULL) {
+                        $in_link_description = $insurance->link_description;
+                    } else {
+                        $in_link_description = '<span style="font-style: italic; color: #DD1144;">Brak danych</span>';
+                    }
 
                     echo json_encode(array(
                         'status' => 1, 
@@ -101,8 +111,10 @@ class Insurance extends MY_Controller {
                         'in_fdate' => $insurance->in_fdate,
                         'in_ldate' => $insurance->in_ldate,
                         'in_link' => $insurance->in_link,
-                        'in_link_description' => $insurance->in_link_description,
-                        'in_notice' => $in_notice
+                        'in_link_description' => $in_link_description,
+                        'in_notice' => $in_notice,
+                        'in_process' => $client->cl_process
+                            
                         ));
                     
                 } 

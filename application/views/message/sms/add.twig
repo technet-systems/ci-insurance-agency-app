@@ -10,12 +10,12 @@
                     <div class="col-lg-12">
                         <div class="view-header">
                             <div class="header-icon">
-                                <i class="pe page-header-icon pe-7s-add-user"></i>
+                                <i class="pe page-header-icon pe-7s-phone"></i>
                             </div>
                             <div class="header-title">
-                                <h3 class="m-b-xs">Dodaj Klienta</h3>
+                                <h3 class="m-b-xs">Edycja powiadomienia SMS</h3>
                                 <small>
-                                    Wypełnij pola formularza aby dodać nowego Klienta
+                                    Wypełnij pole formularza aby dodać nowy tekst powiadomienia
                                 </small>
                             </div>
                         </div>
@@ -27,30 +27,18 @@
                     <div class="col-md-6">
                         <div class="panel panel-filled">
                             <div class="panel-heading">
-                                Formularz dodawania nowego Klienta do bazy danych
+                                Formularz dodawania nowego tekstu wiadomości SMS
                                 <span class="help-block">Pola z <code>*</code> są obowiązkowe</span>
                             </div>
                             <div class="panel-body">
-                                <form class="form-horizontal" id="customer-create">
-                                    <div class="form-group"><label for="cl_name" class="col-sm-3 control-label">Imię i nazwisko / Firma <code>*</code></label>
-                                        <div class="col-sm-9"><input type="text" name="cl_name" class="form-control" id="cl_name" placeholder="np. Jan Kowalski lub nazwa Firmy"></div>
+                                <form class="form-horizontal" id="sms-create">
+                                    <div class="form-group"><label for="me_header" class="col-sm-3 control-label">Podpis wiadomości <code>*</code></label>
+                                        <div class="col-sm-9"><input type="text" name="me_header" class="form-control" id="me_header" placeholder="Wpisz podpis SMS" value='{{ message.me_header }}'></div>
                                     </div>
-                                    <div class="form-group"><label for="cl_address" class="col-sm-3 control-label">Adres <code>*</code></label>
-                                        <div class="col-sm-9"><input type="text" name="cl_address" class="form-control" id="cl_address" placeholder="Adres zamieszkania lub działalności"></div>
+                                    <div class="form-group"><label for="me_text" class="col-sm-3 control-label">Tekst powiadomienia <code>*</code></label>
+                                        <div class="col-sm-9"><textarea class="form-control vertical" rows="3" placeholder="Wpisz treść wiadomości" id="me_text" name="me_text">{{ message.me_text }}</textarea></div>
                                     </div>
-                                    <div class="form-group"><label for="cl_email" class="col-sm-3 control-label">E-mail</label>
-                                        <div class="col-sm-9"><input type="text" name="cl_email" class="form-control" id="cl_email" placeholder="Aktywny e-mail"></div>
-                                    </div>
-                                    <div class="form-group"><label for="cl_phone" class="col-sm-3 control-label">Telefon</label>
-                                        <div class="col-sm-9"><input type="text" name="cl_phone" class="form-control" id="cl_phone" placeholder="Telefon (tylko cyfry bez spacji)"></div>
-                                    </div>
-                                    <div class="form-group"><label for="cl_identity" class="col-sm-3 control-label">Identyfikacja</label>
-                                        <div class="col-sm-9"><input type="text" name="cl_identity" class="form-control" id="cl_identity" placeholder="PESEL lub NIP (bez spacji i dla numeru NIP poprzedzić literą N)"></div>
-                                    </div>
-                                    <div class="form-group"><label for="cl_notice" class="col-sm-3 control-label">Uwagi</label>
-                                        <div class="col-sm-9"><textarea class="form-control vertical" rows="3" placeholder="Miejsce na notatki" id="cl_notice" name="cl_notice"></textarea></div>
-                                    </div>
-                                    <button type="submit" class="btn btn-accent pull-right" id="submit" data-url="{{ base_url('client/create') }}"><i class="fa fa-save"></i> Zapisz</button>
+                                    <button disabled="disabled" type="submit" class="btn btn-accent pull-right" id="submit" data-url="{{ base_url('message/create/sms') }}"><i class="fa fa-save"></i> Zapisz</button>
                                 </form>
                             </div>
                         </div>
@@ -71,7 +59,7 @@
     $('#submit').click(function(e) {
         e.preventDefault();
 
-        var data = $('#customer-create').serialize();
+        var data = $('#sms-create').serialize();
         var url = $(this).attr('data-url');
 
         $.ajax({
@@ -93,7 +81,7 @@
                         },500
                     );
                     
-                    $('#customer-create').find('input:text, input:password, input:file, select, textarea').val('');
+                    $('#submit').prop("disabled", true);
                 } else {
                     setTimeout(function(){ // Run toastr notification with failture message
                         toastr.options = {
@@ -113,5 +101,9 @@
             }
 
         });
+    });
+    
+    $('#sms-create').find('input:text, input:password, input:file, select, textarea').on('change keypress', function() {
+        $('#submit').prop("disabled", false);
     });
 {% endblock %}

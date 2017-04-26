@@ -110,16 +110,16 @@
                     Ustawienia
                 </li>
 
-                <li>
-                    <a href="#reminder" data-toggle="collapse" aria-expanded="false">
+                <li id="message-menu">
+                    <a href="#message-submenu" data-toggle="collapse" aria-expanded="false">
                         Przypomnienia <span class="sub-nav-icon"> <i class="stroke-arrow"></i> </span>
                     </a>
-                    <ul id="reminder" class="nav nav-second collapse">
-                        <li><a href="configMail.html">E-mail</a></li>
-                        <li><a href="configSMS.html">SMS</a></li>
+                    <ul id="message-submenu" class="nav nav-second collapse">
+                        <li id="message-submenu-add-email"><a href="{{ base_url('message/add_email') }}">E-mail</a></li>
+                        <li id="message-submenu-add-sms"><a href="{{ base_url('message/add_sms') }}">SMS</a></li>
                     </ul>
                 </li>
-                
+                <!--
                 <li>
                     <a href="#account" data-toggle="collapse" aria-expanded="false">
                         Administrator <span class="sub-nav-icon"> <i class="stroke-arrow"></i> </span>
@@ -137,9 +137,17 @@
                         <li><a href="logList.html"> Logi </a></li>
                     </ul>
                 </li>
+                -->
                 <li class="nav-info">
                     <div class="m-b-xs">
-                        <span class="c-white">Widok MONITORING</span><p class="text-justify"> W tym widoku mamy ogólny ogląd na dane zapisane w aplikacji oraz listę z polisami klientów, które niebawem się skończą i można w określony sposób Klientom przypomnieć o ich przedłużeniu.</p>
+                        <span class="c-white">FORMULARZ BŁĘDÓW</span>
+                        <p class="help-block text-justify">Jeśli zauważyłeś błąd lub masz pomysł na usprawnienie jakiejś sekcji - napisz mi proszę o tym ;)</p>
+                        <form id="bug-create">
+                            <textarea class="form-control vertical" rows="5" placeholder="Wiadomość od Użytkownika" name="bug_description"></textarea>
+                            <input type="hidden" name="url_name" value="{{ current_url() }}"/>
+                            <div class="m-b-xs"></div>
+                            <button type="submit" class="btn btn-default" id="send-bug" data-url="{{ base_url('dashboard/send_bug') }}">Wyślij</button>
+                        </form>
                     </div>
                     <!--
                     <div class="row">
@@ -184,6 +192,53 @@
 
 <script>
     $(document).ready(function () {
+        $('#send-bug').click(function(e) {
+        e.preventDefault();
+
+        var data = $('#bug-create').serialize();
+        var url = $(this).attr('data-url');
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            success: function (data) {
+                if(data.status == 1) {
+                    setTimeout(function(){ // Run toastr notification with success message
+                        toastr.options = {
+                            "positionClass": "toast-top-right",
+                            "closeButton": true,
+                            "progressBar": true,
+                            "showEasing": "swing",
+                            "timeOut": "6000"
+                        };
+                        toastr.success('<strong>Sukces! </strong> <br/><small>' + data.msg + '</small>');
+                        },500
+                    );
+                    
+                    $('#submit').prop("disabled", true);
+                } else {
+                    setTimeout(function(){ // Run toastr notification with failture message
+                        toastr.options = {
+                            "positionClass": "toast-top-right",
+                            "closeButton": true,
+                            "progressBar": true,
+                            "showEasing": "swing",
+                            "timeOut": "6000"
+                        };
+                        toastr.warning('<strong>Błąd! </strong> <br/><small>' + data.msg + '</small>');
+                        },500
+                    )
+                }
+            },
+            error: function(data){      
+                alert('error');
+            }
+
+        });
+    });
+
 
     {% block jq_scripts %}
         

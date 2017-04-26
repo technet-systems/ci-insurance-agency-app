@@ -80,7 +80,15 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
                                 <h3 class=\"m-b-xs\">";
         // line 28
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["client"]) ? $context["client"] : null), "cl_name", array()), "html", null, true);
-        echo "</h3>
+        echo " | <a href=\"#\" class=\"popup_edit\" data-type=\"select\" data-pk=\"";
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["client"]) ? $context["client"] : null), "cl_id", array()), "html", null, true);
+        echo "\" data-title=\"Zmiana e-mail\" data-url=\"";
+        echo twig_escape_filter($this->env, base_url("client/edit"), "html", null, true);
+        echo "\" data-name=\"cl_process\" data-value=\"";
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["client"]) ? $context["client"] : null), "cl_process", array()), "html", null, true);
+        echo "\" data-source=\"[{'value':'Jest zgoda', 'text':'Jest zgoda'},{'value':'Brak zgody', 'text':'Brak zgody'}]\">";
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["client"]) ? $context["client"] : null), "cl_process", array()), "html", null, true);
+        echo "</a></h3>
                                 <button class=\"btn btn-sm btn-success pull-right\" data-toggle=\"modal\" data-target=\"#modalADD\">Dodaj polisę</button>
                                 <small>
                                     Tabelaryczny podgląd wszystkich polis Klienta
@@ -115,21 +123,22 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
                                                 <th>Załącznik</th>
                                                 <th>Opis</th>
                                                 <th width=\"150\">Uwagi</th>
+                                                <th>Zgoda</th>
                                                 <th width=\"150\">Akcja</th>
                                             </tr>
                                         </thead>
                                         <tbody id=\"insurance-table\">
                                             ";
-        // line 67
+        // line 68
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["insurances"]) ? $context["insurances"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["insurance"]) {
-            // line 68
+            // line 69
             echo "                                            <tr id=\"in_id-";
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_id", array()), "html", null, true);
             echo "\">
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"";
-            // line 69
+            // line 70
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_id", array()), "html", null, true);
             echo "\" data-title=\"Zmiana danych\" data-url=\"";
             echo twig_escape_filter($this->env, base_url("insurance/edit"), "html", null, true);
@@ -137,7 +146,7 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_pr_name", array()), "html", null, true);
             echo "</a></td>
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"";
-            // line 70
+            // line 71
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_id", array()), "html", null, true);
             echo "\" data-title=\"Zmiana danych\" data-url=\"";
             echo twig_escape_filter($this->env, base_url("insurance/edit"), "html", null, true);
@@ -145,7 +154,7 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_co_name", array()), "html", null, true);
             echo "</a></td>
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"";
-            // line 71
+            // line 72
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_id", array()), "html", null, true);
             echo "\" data-title=\"Zmiana danych\" data-url=\"";
             echo twig_escape_filter($this->env, base_url("insurance/edit"), "html", null, true);
@@ -153,7 +162,7 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_identity", array()), "html", null, true);
             echo "</a></td>
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"";
-            // line 72
+            // line 73
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_id", array()), "html", null, true);
             echo "\" data-title=\"Zmiana danych\" data-url=\"";
             echo twig_escape_filter($this->env, base_url("insurance/edit"), "html", null, true);
@@ -161,7 +170,7 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_fdate", array()), "html", null, true);
             echo "</a></td>
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"";
-            // line 73
+            // line 74
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_id", array()), "html", null, true);
             echo "\" data-title=\"Zmiana danych\" data-url=\"";
             echo twig_escape_filter($this->env, base_url("insurance/edit"), "html", null, true);
@@ -169,13 +178,13 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_ldate", array()), "html", null, true);
             echo "</a></td>
                                                 <td><a href=\"";
-            // line 74
+            // line 75
             echo twig_escape_filter($this->env, base_url(("insurance/read/" . $this->getAttribute($context["insurance"], "in_link", array()))), "html", null, true);
             echo "\" target=\"_blank\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"";
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_link_description", array()), "html", null, true);
             echo "\"><i class=\"fa fa-file\"></i></a></td>
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"";
-            // line 75
+            // line 76
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_id", array()), "html", null, true);
             echo "\" data-title=\"Zmiana danych\" data-url=\"";
             echo twig_escape_filter($this->env, base_url("insurance/edit"), "html", null, true);
@@ -183,20 +192,30 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_link_description", array()), "html", null, true);
             echo "</a></td>
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"textarea\" data-pk=\"";
-            // line 76
+            // line 77
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_id", array()), "html", null, true);
             echo "\" data-title=\"Zmiana e-mail\" data-url=\"";
             echo twig_escape_filter($this->env, base_url("insurance/edit"), "html", null, true);
             echo "\" data-name=\"in_notice\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_notice", array()), "html", null, true);
             echo "</a></td>
+                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"select\" data-pk=\"";
+            // line 78
+            echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_id", array()), "html", null, true);
+            echo "\" data-title=\"Zmiana e-mail\" data-url=\"";
+            echo twig_escape_filter($this->env, base_url("insurance/edit"), "html", null, true);
+            echo "\" data-name=\"in_process\" data-value=\"";
+            echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_process", array()), "html", null, true);
+            echo "\" data-source=\"[{'value':'Jest zgoda', 'text':'Jest zgoda'},{'value':'Brak zgody', 'text':'Brak zgody'}]\">";
+            echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_process", array()), "html", null, true);
+            echo "</a></td>
                                                 <td>
                                                     <a href=\"#\" class=\"btn btn-success btn-xs\" data-toggle=\"modal\" data-target=\"#modalFILE-";
-            // line 78
+            // line 80
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_id", array()), "html", null, true);
             echo "\">Załącznik</a>
                                                     <a href=\"#\" class=\"btn btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#modalDELETE-";
-            // line 79
+            // line 81
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_id", array()), "html", null, true);
             echo "\"><i class=\"fa fa-trash\"></i></a>
                                                 </td>
@@ -206,16 +225,16 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['insurance'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 83
+        // line 85
         echo "                                        </tbody>
                                     </table>
                                     
                                     ";
-        // line 86
+        // line 88
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["insurances"]) ? $context["insurances"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["insurance"]) {
-            // line 87
+            // line 89
             echo "                                    <div class=\"modal fade\" id=\"modalDELETE-";
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_id", array()), "html", null, true);
             echo "\" tabindex=\"-1\" role=\"dialog\" aria-hidden=\"true\" style=\"display: none;\">
@@ -227,18 +246,18 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
                                                 </div>
                                                 <div class=\"modal-body\">
                                                     <h3 class=\"m-t-none text-center\">";
-            // line 95
+            // line 97
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_pr_name", array()), "html", null, true);
             echo "</h3>
                                                     <h4 class=\"m-t-none text-center\">";
-            // line 96
+            // line 98
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_co_name", array()), "html", null, true);
             echo "</h4>
                                                 </div>
                                                 <div class=\"modal-footer\">
                                                     <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Anuluj</button>
                                                     <button type=\"button\" class=\"btn btn-danger delete_submit\" data-url=\"";
-            // line 100
+            // line 102
             echo twig_escape_filter($this->env, base_url("insurance/delete"), "html", null, true);
             echo "\" data-pk=\"";
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_id", array()), "html", null, true);
@@ -252,7 +271,7 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['insurance'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 106
+        // line 108
         echo "                                    
                                     <div class=\"modal fade\" id=\"modalADD\" tabindex=\"-1\" role=\"dialog\" aria-hidden=\"true\" style=\"display: none;\">
                                         <div class=\"modal-dialog\">
@@ -269,14 +288,14 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
                                                                 <select class=\"form-control\" name=\"in_co_id\" id=\"in_co_id\">
                                                                     <option value=\"\">-- Proszę wybrać Ubezpieczyciela --</option>
                                                                     ";
-        // line 121
+        // line 123
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["companies_with_products"]) ? $context["companies_with_products"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["company_with_product"]) {
-            // line 122
+            // line 124
             echo "                                                                        ";
             if ($this->getAttribute($context["company_with_product"], "products", array())) {
-                // line 123
+                // line 125
                 echo "                                                                            <option value=\"";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["company_with_product"], "co_id", array()), "html", null, true);
                 echo "\">";
@@ -284,13 +303,13 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
                 echo "</option>
                                                                         ";
             }
-            // line 125
+            // line 127
             echo "                                                                    ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['company_with_product'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 126
+        // line 128
         echo "                                                                </select>
                                                             </div>
                                                         </div>
@@ -329,7 +348,11 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
 
                                                         <div class=\"form-group\"><label for=\"in_link\" class=\"col-sm-4 control-label\">Załącznik</label>
                                                             <div class=\"col-sm-8\">
-                                                                <input type=\"file\" id=\"in_link\" name=\"in_link\">
+                                                                <label class=\"btn btn-accent\" for=\"in_link\">
+                                                                    <input id=\"in_link\" style=\"display:none;\" onchange=\"\$('#upload-file-info').html(\$(this).val());\" type=\"file\" name=\"in_link\">
+                                                                    <span id=\"upload-file-info\">Załącznik</span>
+                                                                </label>
+                                                                <!--<input type=\"file\" id=\"in_link\" name=\"in_link\">-->
                                                             </div>
                                                         </div>
 
@@ -350,12 +373,12 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
                                                 <div class=\"modal-footer\">
                                                     <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Anuluj</button>
                                                     <button type=\"button\" class=\"btn btn-accent\" data-dismiss=\"modal\" id=\"add_submit\" data-url=\"";
-        // line 184
+        // line 190
         echo twig_escape_filter($this->env, base_url(("insurance/create/" . $this->getAttribute((isset($context["client"]) ? $context["client"] : null), "cl_id", array()))), "html", null, true);
         echo "\">Dodaj</button>
                                                 </div>
                                                 ";
-        // line 186
+        // line 192
         echo form_close();
         echo "
                                                 
@@ -364,11 +387,11 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
                                     </div>
                                               
                                     ";
-        // line 192
+        // line 198
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["insurances"]) ? $context["insurances"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["insurance"]) {
-            // line 193
+            // line 199
             echo "                                    <div class=\"modal fade\" id=\"modalFILE-";
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_id", array()), "html", null, true);
             echo "\" tabindex=\"-1\" role=\"dialog\" aria-hidden=\"true\" style=\"display: none;\">
@@ -378,7 +401,7 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
                                                     <h4 class=\"modal-title\">ZAŁĄCZNIK</h4>
                                                     <small>Podmień obecny załącznik:</small><br />
                                                     <small><a href=\"";
-            // line 199
+            // line 205
             echo twig_escape_filter($this->env, base_url(("insurance/read/" . $this->getAttribute($context["insurance"], "in_link", array()))), "html", null, true);
             echo "\" target=\"_blank\"><i class=\"fa fa-file\"></i></a> ";
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_link_description", array()), "html", null, true);
@@ -391,7 +414,7 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
                                                             <div class=\"col-sm-8\">
                                                                 <input type=\"file\" id=\"in_link2\" name=\"in_link\">
                                                                 <input type=\"hidden\" name=\"old_in_link\" value=\"";
-            // line 207
+            // line 213
             echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_link", array()), "html", null, true);
             echo "\">
                                                             </div>
@@ -408,12 +431,12 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
                                                 <div class=\"modal-footer\">
                                                     <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Anuluj</button>
                                                     <button type=\"button\" class=\"btn btn-accent update_submit\" data-dismiss=\"modal\" data-url=\"";
-            // line 221
+            // line 227
             echo twig_escape_filter($this->env, base_url(("insurance/update/" . $this->getAttribute($context["insurance"], "in_id", array()))), "html", null, true);
             echo "\">Zmień</button>
                                                 </div>
                                                 ";
-            // line 223
+            // line 229
             echo form_close();
             echo "
                                                 
@@ -425,7 +448,7 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['insurance'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 229
+        // line 235
         echo "
                                 </div>
 
@@ -444,44 +467,44 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
 ";
     }
 
-    // line 246
+    // line 252
     public function block_vendor_scripts($context, array $blocks = array())
     {
-        // line 247
+        // line 253
         echo "    ";
         $this->displayParentBlock("vendor_scripts", $context, $blocks);
         echo "
     <script src=\"";
-        // line 248
+        // line 254
         echo twig_escape_filter($this->env, base_url("assets/vendor/datatables/datatables.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 249
+        // line 255
         echo twig_escape_filter($this->env, base_url("assets/vendor/dependent-dropdown/js/dependent-dropdown.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 250
+        // line 256
         echo twig_escape_filter($this->env, base_url("assets/vendor/dependent-dropdown/js/depdrop_locale_pl.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 251
+        // line 257
         echo twig_escape_filter($this->env, base_url("assets/vendor/moment/moment.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 252
+        // line 258
         echo twig_escape_filter($this->env, base_url("assets/vendor/moment/locale/pl.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 253
+        // line 259
         echo twig_escape_filter($this->env, base_url("assets/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"), "html", null, true);
         echo "\"></script>
 ";
     }
 
-    // line 256
+    // line 262
     public function block_jq_scripts($context, array $blocks = array())
     {
-        // line 257
+        // line 263
         echo "    ";
         $this->displayParentBlock("jq_scripts", $context, $blocks);
         echo "
@@ -553,8 +576,8 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
                     );
 
                     \$('#insurance-table').prepend(
-                        '<tr id=\"in_id-' + data.in_id + '\" role=\"row\" class=\"odd\"><td class=\"sorting_1\"><a href=\"#\" class=\"popup_edit editable editable-click\" data-type=\"text\" data-pk=\"' + data.in_id + '\" data-title=\"Zmiana danych\" data-url=\"";
-        // line 326
+                    '<tr id=\"in_id-' + data.in_id + '\" role=\"row\" class=\"odd\"><td class=\"sorting_1\"><a href=\"#\" class=\"popup_edit editable editable-click\" data-type=\"text\" data-pk=\"' + data.in_id + '\" data-title=\"Zmiana danych\" data-url=\"";
+        // line 332
         echo twig_escape_filter($this->env, base_url("insurance/edit"), "html", null, true);
         echo "\" data-name=\"in_pr_name\">' + data.in_pr_name + '</a></td><td><a href=\"#\" class=\"popup_edit editable editable-click\" data-type=\"text\" data-pk=\"' + data.in_id + '\" data-title=\"Zmiana danych\" data-url=\"";
         echo twig_escape_filter($this->env, base_url("insurance/edit"), "html", null, true);
@@ -570,7 +593,9 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
         echo twig_escape_filter($this->env, base_url("insurance/edit"), "html", null, true);
         echo "\" data-name=\"in_link_description\">' + data.in_link_description + '</a></td><td><a href=\"#\" class=\"popup_edit editable editable-pre-wrapped editable-click\" data-type=\"textarea\" data-pk=\"' + data.in_id + '\" data-title=\"Zmiana e-mail\" data-url=\"";
         echo twig_escape_filter($this->env, base_url("insurance/edit"), "html", null, true);
-        echo "\" data-name=\"in_notice\">' + data.in_notice + '</a></td><td><a href=\"#\" class=\"btn btn-success btn-xs\">Szczegóły</a><a href=\"#\" class=\"btn btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#modalDELETE-' + data.in_id + '\"><i class=\"fa fa-trash\"></i></a></td></tr>'
+        echo "\" data-name=\"in_notice\">' + data.in_notice + '</a></td><td><a href=\"#\" class=\"popup_edit editable editable-click\" data-type=\"select\" data-pk=\"' + data.in_id + '\" data-title=\"Zmiana e-mail\" data-url=\"";
+        echo twig_escape_filter($this->env, base_url("insurance/edit"), "html", null, true);
+        echo "\" data-name=\"in_process\" data-value=\"' + data.in_process + '\">Weryfikuję zgodę</a></td><td><a href=\"#\" class=\"btn btn-success btn-xs\">Szczegóły</a><a href=\"#\" class=\"btn btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#modalDELETE-' + data.in_id + '\"><i class=\"fa fa-trash\"></i></a></td></tr>'
                     );
 
                     \$('#product-create').find('input:text, input:password, input:file, select, textarea').val('');
@@ -710,7 +735,7 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
     // Child # 1
     \$(\"#in_pr_id\").depdrop({
         url: '";
-        // line 465
+        // line 471
         echo twig_escape_filter($this->env, base_url("insurance/get_product"), "html", null, true);
         echo "',
         depends: ['in_co_id']
@@ -750,7 +775,7 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
 
     public function getDebugInfo()
     {
-        return array (  714 => 465,  558 => 326,  485 => 257,  482 => 256,  476 => 253,  472 => 252,  468 => 251,  464 => 250,  460 => 249,  456 => 248,  451 => 247,  448 => 246,  429 => 229,  417 => 223,  412 => 221,  395 => 207,  382 => 199,  372 => 193,  368 => 192,  359 => 186,  354 => 184,  294 => 126,  288 => 125,  280 => 123,  277 => 122,  273 => 121,  256 => 106,  242 => 100,  235 => 96,  231 => 95,  219 => 87,  215 => 86,  210 => 83,  200 => 79,  196 => 78,  187 => 76,  179 => 75,  173 => 74,  165 => 73,  157 => 72,  149 => 71,  141 => 70,  133 => 69,  128 => 68,  124 => 67,  82 => 28,  68 => 16,  65 => 15,  57 => 11,  54 => 10,  48 => 7,  44 => 6,  40 => 5,  35 => 4,  32 => 3,  11 => 1,);
+        return array (  739 => 471,  581 => 332,  508 => 263,  505 => 262,  499 => 259,  495 => 258,  491 => 257,  487 => 256,  483 => 255,  479 => 254,  474 => 253,  471 => 252,  452 => 235,  440 => 229,  435 => 227,  418 => 213,  405 => 205,  395 => 199,  391 => 198,  382 => 192,  377 => 190,  313 => 128,  307 => 127,  299 => 125,  296 => 124,  292 => 123,  275 => 108,  261 => 102,  254 => 98,  250 => 97,  238 => 89,  234 => 88,  229 => 85,  219 => 81,  215 => 80,  204 => 78,  196 => 77,  188 => 76,  182 => 75,  174 => 74,  166 => 73,  158 => 72,  150 => 71,  142 => 70,  137 => 69,  133 => 68,  82 => 28,  68 => 16,  65 => 15,  57 => 11,  54 => 10,  48 => 7,  44 => 6,  40 => 5,  35 => 4,  32 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -790,7 +815,7 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
                                 <i class=\"pe page-header-icon pe-7s-user\"></i>
                             </div>
                             <div class=\"header-title\">
-                                <h3 class=\"m-b-xs\">{{ client.cl_name }}</h3>
+                                <h3 class=\"m-b-xs\">{{ client.cl_name }} | <a href=\"#\" class=\"popup_edit\" data-type=\"select\" data-pk=\"{{ client.cl_id }}\" data-title=\"Zmiana e-mail\" data-url=\"{{ base_url('client/edit') }}\" data-name=\"cl_process\" data-value=\"{{ client.cl_process }}\" data-source=\"[{'value':'Jest zgoda', 'text':'Jest zgoda'},{'value':'Brak zgody', 'text':'Brak zgody'}]\">{{ client.cl_process }}</a></h3>
                                 <button class=\"btn btn-sm btn-success pull-right\" data-toggle=\"modal\" data-target=\"#modalADD\">Dodaj polisę</button>
                                 <small>
                                     Tabelaryczny podgląd wszystkich polis Klienta
@@ -825,6 +850,7 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
                                                 <th>Załącznik</th>
                                                 <th>Opis</th>
                                                 <th width=\"150\">Uwagi</th>
+                                                <th>Zgoda</th>
                                                 <th width=\"150\">Akcja</th>
                                             </tr>
                                         </thead>
@@ -839,6 +865,7 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
                                                 <td><a href=\"{{ base_url('insurance/read/' ~ insurance.in_link) }}\" target=\"_blank\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"{{ insurance.in_link_description }}\"><i class=\"fa fa-file\"></i></a></td>
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"{{ insurance.in_id }}\" data-title=\"Zmiana danych\" data-url=\"{{ base_url('insurance/edit') }}\" data-name=\"in_link_description\">{{ insurance.in_link_description }}</a></td>
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"textarea\" data-pk=\"{{ insurance.in_id }}\" data-title=\"Zmiana e-mail\" data-url=\"{{ base_url('insurance/edit') }}\" data-name=\"in_notice\">{{ insurance.in_notice }}</a></td>
+                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"select\" data-pk=\"{{ insurance.in_id }}\" data-title=\"Zmiana e-mail\" data-url=\"{{ base_url('insurance/edit') }}\" data-name=\"in_process\" data-value=\"{{ insurance.in_process }}\" data-source=\"[{'value':'Jest zgoda', 'text':'Jest zgoda'},{'value':'Brak zgody', 'text':'Brak zgody'}]\">{{ insurance.in_process }}</a></td>
                                                 <td>
                                                     <a href=\"#\" class=\"btn btn-success btn-xs\" data-toggle=\"modal\" data-target=\"#modalFILE-{{ insurance.in_id }}\">Załącznik</a>
                                                     <a href=\"#\" class=\"btn btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#modalDELETE-{{ insurance.in_id }}\"><i class=\"fa fa-trash\"></i></a>
@@ -926,7 +953,11 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
 
                                                         <div class=\"form-group\"><label for=\"in_link\" class=\"col-sm-4 control-label\">Załącznik</label>
                                                             <div class=\"col-sm-8\">
-                                                                <input type=\"file\" id=\"in_link\" name=\"in_link\">
+                                                                <label class=\"btn btn-accent\" for=\"in_link\">
+                                                                    <input id=\"in_link\" style=\"display:none;\" onchange=\"\$('#upload-file-info').html(\$(this).val());\" type=\"file\" name=\"in_link\">
+                                                                    <span id=\"upload-file-info\">Załącznik</span>
+                                                                </label>
+                                                                <!--<input type=\"file\" id=\"in_link\" name=\"in_link\">-->
                                                             </div>
                                                         </div>
 
@@ -1088,7 +1119,7 @@ class __TwigTemplate_15a5fb5af1a9f3977f1907ad58daae2a162556e6417473d7c83839f1891
                     );
 
                     \$('#insurance-table').prepend(
-                        '<tr id=\"in_id-' + data.in_id + '\" role=\"row\" class=\"odd\"><td class=\"sorting_1\"><a href=\"#\" class=\"popup_edit editable editable-click\" data-type=\"text\" data-pk=\"' + data.in_id + '\" data-title=\"Zmiana danych\" data-url=\"{{ base_url('insurance/edit') }}\" data-name=\"in_pr_name\">' + data.in_pr_name + '</a></td><td><a href=\"#\" class=\"popup_edit editable editable-click\" data-type=\"text\" data-pk=\"' + data.in_id + '\" data-title=\"Zmiana danych\" data-url=\"{{ base_url('insurance/edit') }}\" data-name=\"in_co_name\">' + data.in_co_name + '</a></td><td><a href=\"#\" class=\"popup_edit editable editable-click\" data-type=\"text\" data-pk=\"' + data.in_id + '\" data-title=\"Zmiana danych\" data-url=\"{{ base_url('insurance/edit') }}\" data-name=\"in_identity\">' + data.in_identity + '</a></td><td><a href=\"#\" class=\"popup_edit editable editable-click\" data-type=\"text\" data-pk=\"' + data.in_id + '\" data-title=\"Zmiana danych\" data-url=\"{{ base_url('insurance/edit') }}\" data-name=\"in_fdate\">' + data.in_fdate + '</a></td><td><a href=\"#\" class=\"popup_edit editable editable-click\" data-type=\"text\" data-pk=\"' + data.in_id + '\" data-title=\"Zmiana danych\" data-url=\"{{ base_url('insurance/edit') }}\" data-name=\"in_ldate\">' + data.in_ldate + '</a></td><td><a href=\"{{ base_url('insurance/read') }}/' + data.in_link + '\" target=\"_blank\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"\" data-original-title=\"aa\"><i class=\"fa fa-file\"></i></a></td><td><a href=\"#\" class=\"popup_edit editable editable-click\" data-type=\"text\" data-pk=\"' + data.in_id + '\" data-title=\"Zmiana danych\" data-url=\"{{ base_url('insurance/edit') }}\" data-name=\"in_link_description\">' + data.in_link_description + '</a></td><td><a href=\"#\" class=\"popup_edit editable editable-pre-wrapped editable-click\" data-type=\"textarea\" data-pk=\"' + data.in_id + '\" data-title=\"Zmiana e-mail\" data-url=\"{{ base_url('insurance/edit') }}\" data-name=\"in_notice\">' + data.in_notice + '</a></td><td><a href=\"#\" class=\"btn btn-success btn-xs\">Szczegóły</a><a href=\"#\" class=\"btn btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#modalDELETE-' + data.in_id + '\"><i class=\"fa fa-trash\"></i></a></td></tr>'
+                    '<tr id=\"in_id-' + data.in_id + '\" role=\"row\" class=\"odd\"><td class=\"sorting_1\"><a href=\"#\" class=\"popup_edit editable editable-click\" data-type=\"text\" data-pk=\"' + data.in_id + '\" data-title=\"Zmiana danych\" data-url=\"{{ base_url('insurance/edit') }}\" data-name=\"in_pr_name\">' + data.in_pr_name + '</a></td><td><a href=\"#\" class=\"popup_edit editable editable-click\" data-type=\"text\" data-pk=\"' + data.in_id + '\" data-title=\"Zmiana danych\" data-url=\"{{ base_url('insurance/edit') }}\" data-name=\"in_co_name\">' + data.in_co_name + '</a></td><td><a href=\"#\" class=\"popup_edit editable editable-click\" data-type=\"text\" data-pk=\"' + data.in_id + '\" data-title=\"Zmiana danych\" data-url=\"{{ base_url('insurance/edit') }}\" data-name=\"in_identity\">' + data.in_identity + '</a></td><td><a href=\"#\" class=\"popup_edit editable editable-click\" data-type=\"text\" data-pk=\"' + data.in_id + '\" data-title=\"Zmiana danych\" data-url=\"{{ base_url('insurance/edit') }}\" data-name=\"in_fdate\">' + data.in_fdate + '</a></td><td><a href=\"#\" class=\"popup_edit editable editable-click\" data-type=\"text\" data-pk=\"' + data.in_id + '\" data-title=\"Zmiana danych\" data-url=\"{{ base_url('insurance/edit') }}\" data-name=\"in_ldate\">' + data.in_ldate + '</a></td><td><a href=\"{{ base_url('insurance/read') }}/' + data.in_link + '\" target=\"_blank\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"\" data-original-title=\"aa\"><i class=\"fa fa-file\"></i></a></td><td><a href=\"#\" class=\"popup_edit editable editable-click\" data-type=\"text\" data-pk=\"' + data.in_id + '\" data-title=\"Zmiana danych\" data-url=\"{{ base_url('insurance/edit') }}\" data-name=\"in_link_description\">' + data.in_link_description + '</a></td><td><a href=\"#\" class=\"popup_edit editable editable-pre-wrapped editable-click\" data-type=\"textarea\" data-pk=\"' + data.in_id + '\" data-title=\"Zmiana e-mail\" data-url=\"{{ base_url('insurance/edit') }}\" data-name=\"in_notice\">' + data.in_notice + '</a></td><td><a href=\"#\" class=\"popup_edit editable editable-click\" data-type=\"select\" data-pk=\"' + data.in_id + '\" data-title=\"Zmiana e-mail\" data-url=\"{{ base_url('insurance/edit') }}\" data-name=\"in_process\" data-value=\"' + data.in_process + '\">Weryfikuję zgodę</a></td><td><a href=\"#\" class=\"btn btn-success btn-xs\">Szczegóły</a><a href=\"#\" class=\"btn btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#modalDELETE-' + data.in_id + '\"><i class=\"fa fa-trash\"></i></a></td></tr>'
                     );
 
                     \$('#product-create').find('input:text, input:password, input:file, select, textarea').val('');

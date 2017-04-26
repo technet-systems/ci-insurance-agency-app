@@ -21,7 +21,8 @@
 * [x] adding clients using jQuery AJAX [2017-03-24 ~ 2017-04-03]
 * [x] adding companies and products using jQuery AJAX [2017-04-03 ~ 2017-04-06]
 * [x] adding products to clients using jQuery AJAX [2017-04-06 ~ 2017-04-19]
-* [ ] feeding dashboard/monitoring view with data [2017-04-19 ~ ]
+* [x] feeding dashboard/monitoring view with data [2017-04-19 ~ 2017-04-26]
+* [ ] fixing bugs and adding some features [2017-04-26 ~ ]
 
 
 ## Change Log:

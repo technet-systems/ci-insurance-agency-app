@@ -72,6 +72,14 @@ $(document).ready(function () {
         } else if(methodName === 'all') {
             $('#company-submenu-all').addClass('active');
         }
+    } else if(controlerName === 'message') {
+        $('#message-menu').addClass('active');
+        $('#message-submenu').addClass('in');
+        if(methodName === 'add_email') {
+            $('#message-submenu-add-email').addClass('active');
+        } else if(methodName === 'add_sms') {
+            $('#message-submenu-add-sms').addClass('active');
+        }
     } 
     // /.Rozwijanie bocznego menu w zależności od pierwszego segmentu URL'a
 });

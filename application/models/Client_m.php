@@ -24,6 +24,13 @@ class Client_m extends MY_Model
         ];
         */
         
+        $this->has_many['insurances'] = [
+            'foreign_model'=>'Insurance_m',
+            'foreign_table'=>'insurances',
+            'foreign_key'=>'in_cl_id',
+            'local_key'=>'cl_id'
+        ];
+        
         parent::__construct();
     }
 

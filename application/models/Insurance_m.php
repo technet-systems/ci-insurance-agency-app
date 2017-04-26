@@ -26,6 +26,13 @@ class Insurance_m extends MY_Model
         ];
         */
         
+        $this->has_one['client'] = [
+            'foreign_model'=>'Client_m',
+            'foreign_table'=>'clients',
+            'foreign_key'=>'cl_id',
+            'local_key'=>'in_cl_id'
+        ];
+        
         parent::__construct();
     }
 
@@ -63,6 +70,11 @@ class Insurance_m extends MY_Model
             ],
             'in_notice' => [
                 'field' => 'in_notice',
+                'label' => '',
+                'rules' => 'trim'
+            ],
+            'in_process' => [
+                'field' => 'in_process',
                 'label' => '',
                 'rules' => 'trim'
             ]
@@ -113,6 +125,13 @@ class Insurance_m extends MY_Model
             'in_notice' => [
                 'in_notice' => [
                     'field' => 'in_notice',
+                    'label' => '',
+                    'rules' => 'trim'
+                ]
+            ],
+            'in_process' => [
+                'in_process' => [
+                    'field' => 'in_process',
                     'label' => '',
                     'rules' => 'trim'
                 ]

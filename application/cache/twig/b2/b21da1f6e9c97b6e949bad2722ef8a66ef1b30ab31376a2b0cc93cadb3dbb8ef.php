@@ -166,16 +166,22 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
                     Ustawienia
                 </li>
 
-                <li>
-                    <a href=\"#reminder\" data-toggle=\"collapse\" aria-expanded=\"false\">
+                <li id=\"message-menu\">
+                    <a href=\"#message-submenu\" data-toggle=\"collapse\" aria-expanded=\"false\">
                         Przypomnienia <span class=\"sub-nav-icon\"> <i class=\"stroke-arrow\"></i> </span>
                     </a>
-                    <ul id=\"reminder\" class=\"nav nav-second collapse\">
-                        <li><a href=\"configMail.html\">E-mail</a></li>
-                        <li><a href=\"configSMS.html\">SMS</a></li>
+                    <ul id=\"message-submenu\" class=\"nav nav-second collapse\">
+                        <li id=\"message-submenu-add-email\"><a href=\"";
+        // line 118
+        echo twig_escape_filter($this->env, base_url("message/add_email"), "html", null, true);
+        echo "\">E-mail</a></li>
+                        <li id=\"message-submenu-add-sms\"><a href=\"";
+        // line 119
+        echo twig_escape_filter($this->env, base_url("message/add_sms"), "html", null, true);
+        echo "\">SMS</a></li>
                     </ul>
                 </li>
-                
+                <!--
                 <li>
                     <a href=\"#account\" data-toggle=\"collapse\" aria-expanded=\"false\">
                         Administrator <span class=\"sub-nav-icon\"> <i class=\"stroke-arrow\"></i> </span>
@@ -193,9 +199,23 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
                         <li><a href=\"logList.html\"> Logi </a></li>
                     </ul>
                 </li>
+                -->
                 <li class=\"nav-info\">
                     <div class=\"m-b-xs\">
-                        <span class=\"c-white\">Widok MONITORING</span><p class=\"text-justify\"> W tym widoku mamy ogólny ogląd na dane zapisane w aplikacji oraz listę z polisami klientów, które niebawem się skończą i można w określony sposób Klientom przypomnieć o ich przedłużeniu.</p>
+                        <span class=\"c-white\">FORMULARZ BŁĘDÓW</span>
+                        <p class=\"help-block text-justify\">Jeśli zauważyłeś błąd lub masz pomysł na usprawnienie jakiejś sekcji - napisz mi proszę o tym ;)</p>
+                        <form id=\"bug-create\">
+                            <textarea class=\"form-control vertical\" rows=\"5\" placeholder=\"Wiadomość od Użytkownika\" name=\"bug_description\"></textarea>
+                            <input type=\"hidden\" name=\"url_name\" value=\"";
+        // line 147
+        echo twig_escape_filter($this->env, current_url(), "html", null, true);
+        echo "\"/>
+                            <div class=\"m-b-xs\"></div>
+                            <button type=\"submit\" class=\"btn btn-default\" id=\"send-bug\" data-url=\"";
+        // line 149
+        echo twig_escape_filter($this->env, base_url("dashboard/send_bug"), "html", null, true);
+        echo "\">Wyślij</button>
+                        </form>
                     </div>
                     <!--
                     <div class=\"row\">
@@ -217,29 +237,76 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
     <!-- End navigation-->
 
 ";
-        // line 163
+        // line 171
         $this->displayBlock('body', $context, $blocks);
-        // line 164
+        // line 172
         echo "
 <!-- Vendor scripts -->
 ";
-        // line 166
+        // line 174
         $this->displayBlock('vendor_scripts', $context, $blocks);
-        // line 179
+        // line 187
         echo "
 <!-- App scripts -->
 ";
-        // line 181
+        // line 189
         $this->displayBlock('app_scripts', $context, $blocks);
-        // line 184
+        // line 192
         echo "
 <script>
     \$(document).ready(function () {
+        \$('#send-bug').click(function(e) {
+        e.preventDefault();
+
+        var data = \$('#bug-create').serialize();
+        var url = \$(this).attr('data-url');
+
+        \$.ajax({
+            url: url,
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            success: function (data) {
+                if(data.status == 1) {
+                    setTimeout(function(){ // Run toastr notification with success message
+                        toastr.options = {
+                            \"positionClass\": \"toast-top-right\",
+                            \"closeButton\": true,
+                            \"progressBar\": true,
+                            \"showEasing\": \"swing\",
+                            \"timeOut\": \"6000\"
+                        };
+                        toastr.success('<strong>Sukces! </strong> <br/><small>' + data.msg + '</small>');
+                        },500
+                    );
+                    
+                    \$('#submit').prop(\"disabled\", true);
+                } else {
+                    setTimeout(function(){ // Run toastr notification with failture message
+                        toastr.options = {
+                            \"positionClass\": \"toast-top-right\",
+                            \"closeButton\": true,
+                            \"progressBar\": true,
+                            \"showEasing\": \"swing\",
+                            \"timeOut\": \"6000\"
+                        };
+                        toastr.warning('<strong>Błąd! </strong> <br/><small>' + data.msg + '</small>');
+                        },500
+                    )
+                }
+            },
+            error: function(data){      
+                alert('error');
+            }
+
+        });
+    });
+
 
     ";
-        // line 188
+        // line 243
         $this->displayBlock('jq_scripts', $context, $blocks);
-        // line 191
+        // line 246
         echo "    });
 </script>
 
@@ -296,75 +363,75 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
     ";
     }
 
-    // line 163
+    // line 171
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 166
+    // line 174
     public function block_vendor_scripts($context, array $blocks = array())
     {
-        // line 167
+        // line 175
         echo "<script src=\"";
         echo twig_escape_filter($this->env, base_url("assets/vendor/pacejs/pace.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 168
+        // line 176
         echo twig_escape_filter($this->env, base_url("assets/vendor/jquery/dist/jquery.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 169
+        // line 177
         echo twig_escape_filter($this->env, base_url("assets/vendor/bootstrap/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 170
+        // line 178
         echo twig_escape_filter($this->env, base_url("assets/vendor/toastr/toastr.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 171
+        // line 179
         echo twig_escape_filter($this->env, base_url("assets/vendor/sparkline/index.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 172
+        // line 180
         echo twig_escape_filter($this->env, base_url("assets/vendor/flot/jquery.flot.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 173
+        // line 181
         echo twig_escape_filter($this->env, base_url("assets/vendor/flot/jquery.flot.resize.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 174
+        // line 182
         echo twig_escape_filter($this->env, base_url("assets/vendor/flot/jquery.flot.spline.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 175
+        // line 183
         echo twig_escape_filter($this->env, base_url("assets/vendor/bootstrap3-editable/js/bootstrap-editable.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 176
+        // line 184
         echo twig_escape_filter($this->env, base_url("assets/vendor/jquery-validation/jquery.validate.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 177
+        // line 185
         echo twig_escape_filter($this->env, base_url("assets/vendor/jquery-validation/localization/messages_pl.min.js"), "html", null, true);
         echo "\"></script>
 ";
     }
 
-    // line 181
+    // line 189
     public function block_app_scripts($context, array $blocks = array())
     {
-        // line 182
+        // line 190
         echo "<script src=\"";
         echo twig_escape_filter($this->env, base_url("assets/scripts/luna.js"), "html", null, true);
         echo "\"></script>
 ";
     }
 
-    // line 188
+    // line 243
     public function block_jq_scripts($context, array $blocks = array())
     {
-        // line 189
+        // line 244
         echo "        
     ";
     }
@@ -381,7 +448,7 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
 
     public function getDebugInfo()
     {
-        return array (  368 => 189,  365 => 188,  358 => 182,  355 => 181,  349 => 177,  345 => 176,  341 => 175,  337 => 174,  333 => 173,  329 => 172,  325 => 171,  321 => 170,  317 => 169,  313 => 168,  308 => 167,  305 => 166,  300 => 163,  294 => 27,  290 => 26,  286 => 25,  281 => 24,  278 => 23,  272 => 19,  268 => 18,  264 => 17,  260 => 16,  255 => 15,  252 => 14,  243 => 191,  241 => 188,  235 => 184,  233 => 181,  229 => 179,  227 => 166,  223 => 164,  221 => 163,  160 => 105,  156 => 104,  144 => 95,  140 => 94,  125 => 82,  105 => 65,  101 => 64,  97 => 63,  80 => 49,  76 => 48,  55 => 29,  53 => 23,  49 => 21,  47 => 14,  37 => 11,  25 => 1,);
+        return array (  435 => 244,  432 => 243,  425 => 190,  422 => 189,  416 => 185,  412 => 184,  408 => 183,  404 => 182,  400 => 181,  396 => 180,  392 => 179,  388 => 178,  384 => 177,  380 => 176,  375 => 175,  372 => 174,  367 => 171,  361 => 27,  357 => 26,  353 => 25,  348 => 24,  345 => 23,  339 => 19,  335 => 18,  331 => 17,  327 => 16,  322 => 15,  319 => 14,  310 => 246,  308 => 243,  255 => 192,  253 => 189,  249 => 187,  247 => 174,  243 => 172,  241 => 171,  216 => 149,  211 => 147,  180 => 119,  176 => 118,  160 => 105,  156 => 104,  144 => 95,  140 => 94,  125 => 82,  105 => 65,  101 => 64,  97 => 63,  80 => 49,  76 => 48,  55 => 29,  53 => 23,  49 => 21,  47 => 14,  37 => 11,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -506,16 +573,16 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
                     Ustawienia
                 </li>
 
-                <li>
-                    <a href=\"#reminder\" data-toggle=\"collapse\" aria-expanded=\"false\">
+                <li id=\"message-menu\">
+                    <a href=\"#message-submenu\" data-toggle=\"collapse\" aria-expanded=\"false\">
                         Przypomnienia <span class=\"sub-nav-icon\"> <i class=\"stroke-arrow\"></i> </span>
                     </a>
-                    <ul id=\"reminder\" class=\"nav nav-second collapse\">
-                        <li><a href=\"configMail.html\">E-mail</a></li>
-                        <li><a href=\"configSMS.html\">SMS</a></li>
+                    <ul id=\"message-submenu\" class=\"nav nav-second collapse\">
+                        <li id=\"message-submenu-add-email\"><a href=\"{{ base_url('message/add_email') }}\">E-mail</a></li>
+                        <li id=\"message-submenu-add-sms\"><a href=\"{{ base_url('message/add_sms') }}\">SMS</a></li>
                     </ul>
                 </li>
-                
+                <!--
                 <li>
                     <a href=\"#account\" data-toggle=\"collapse\" aria-expanded=\"false\">
                         Administrator <span class=\"sub-nav-icon\"> <i class=\"stroke-arrow\"></i> </span>
@@ -533,9 +600,17 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
                         <li><a href=\"logList.html\"> Logi </a></li>
                     </ul>
                 </li>
+                -->
                 <li class=\"nav-info\">
                     <div class=\"m-b-xs\">
-                        <span class=\"c-white\">Widok MONITORING</span><p class=\"text-justify\"> W tym widoku mamy ogólny ogląd na dane zapisane w aplikacji oraz listę z polisami klientów, które niebawem się skończą i można w określony sposób Klientom przypomnieć o ich przedłużeniu.</p>
+                        <span class=\"c-white\">FORMULARZ BŁĘDÓW</span>
+                        <p class=\"help-block text-justify\">Jeśli zauważyłeś błąd lub masz pomysł na usprawnienie jakiejś sekcji - napisz mi proszę o tym ;)</p>
+                        <form id=\"bug-create\">
+                            <textarea class=\"form-control vertical\" rows=\"5\" placeholder=\"Wiadomość od Użytkownika\" name=\"bug_description\"></textarea>
+                            <input type=\"hidden\" name=\"url_name\" value=\"{{ current_url() }}\"/>
+                            <div class=\"m-b-xs\"></div>
+                            <button type=\"submit\" class=\"btn btn-default\" id=\"send-bug\" data-url=\"{{ base_url('dashboard/send_bug') }}\">Wyślij</button>
+                        </form>
                     </div>
                     <!--
                     <div class=\"row\">
@@ -580,6 +655,53 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
 
 <script>
     \$(document).ready(function () {
+        \$('#send-bug').click(function(e) {
+        e.preventDefault();
+
+        var data = \$('#bug-create').serialize();
+        var url = \$(this).attr('data-url');
+
+        \$.ajax({
+            url: url,
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            success: function (data) {
+                if(data.status == 1) {
+                    setTimeout(function(){ // Run toastr notification with success message
+                        toastr.options = {
+                            \"positionClass\": \"toast-top-right\",
+                            \"closeButton\": true,
+                            \"progressBar\": true,
+                            \"showEasing\": \"swing\",
+                            \"timeOut\": \"6000\"
+                        };
+                        toastr.success('<strong>Sukces! </strong> <br/><small>' + data.msg + '</small>');
+                        },500
+                    );
+                    
+                    \$('#submit').prop(\"disabled\", true);
+                } else {
+                    setTimeout(function(){ // Run toastr notification with failture message
+                        toastr.options = {
+                            \"positionClass\": \"toast-top-right\",
+                            \"closeButton\": true,
+                            \"progressBar\": true,
+                            \"showEasing\": \"swing\",
+                            \"timeOut\": \"6000\"
+                        };
+                        toastr.warning('<strong>Błąd! </strong> <br/><small>' + data.msg + '</small>');
+                        },500
+                    )
+                }
+            },
+            error: function(data){      
+                alert('error');
+            }
+
+        });
+    });
+
 
     {% block jq_scripts %}
         
