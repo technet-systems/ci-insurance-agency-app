@@ -87,21 +87,18 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
                         <i class=\"stroke-hamburgermenu\"></i>
                     </a>
                 </div>
-                <form class=\"navbar-form navbar-left\">
-                    <input type=\"text\" class=\"form-control\" placeholder=\"Search data for analysis\" style=\"width: 175px\">
-                </form>
                 <ul class=\"nav navbar-nav navbar-right\">
                     <li class=\" profil-link\">
                         <a href=\"";
-        // line 63
+        // line 60
         echo twig_escape_filter($this->env, base_url("auth/logout"), "html", null, true);
         echo "\">
                             <span class=\"profile-address\">Wyloguj: ";
-        // line 64
+        // line 61
         echo twig_escape_filter($this->env, (isset($context["us_email"]) ? $context["us_email"] : null), "html", null, true);
         echo "</span>
                             <img src=\"";
-        // line 65
+        // line 62
         echo twig_escape_filter($this->env, base_url("assets/images/profile.jpg"), "html", null, true);
         echo "\" class=\"img-circle\" alt=\"\">
                         </a>
@@ -121,7 +118,7 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
                 </li>
                 <li id=\"dashboard-monitoring-menu\">
                     <a href=\"";
-        // line 82
+        // line 79
         echo twig_escape_filter($this->env, base_url("dashboard/monitoring"), "html", null, true);
         echo "\">Monitoring</a>
                 </li>
@@ -136,11 +133,11 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
                     </a>
                     <ul id=\"client-submenu\" class=\"nav nav-second collapse\">
                         <li id=\"client-submenu-all\"><a href=\"";
-        // line 94
+        // line 91
         echo twig_escape_filter($this->env, base_url("client/all"), "html", null, true);
         echo "\">Lista</a></li>
                         <li id=\"client-submenu-add\"><a href=\"";
-        // line 95
+        // line 92
         echo twig_escape_filter($this->env, base_url("client/add"), "html", null, true);
         echo "\">Dodaj</a></li>
                     </ul>
@@ -152,11 +149,11 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
                     </a>
                     <ul id=\"company-submenu\" class=\"nav nav-second collapse\">
                         <li id=\"company-submenu-all\"><a href=\"";
-        // line 104
+        // line 101
         echo twig_escape_filter($this->env, base_url("company/all"), "html", null, true);
         echo "\">Lista</a></li>
                         <li id=\"company-submenu-add\"><a href=\"";
-        // line 105
+        // line 102
         echo twig_escape_filter($this->env, base_url("company/add"), "html", null, true);
         echo "\">Dodaj</a></li>
                     </ul>
@@ -172,11 +169,11 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
                     </a>
                     <ul id=\"message-submenu\" class=\"nav nav-second collapse\">
                         <li id=\"message-submenu-add-email\"><a href=\"";
-        // line 118
+        // line 115
         echo twig_escape_filter($this->env, base_url("message/add_email"), "html", null, true);
         echo "\">E-mail</a></li>
                         <li id=\"message-submenu-add-sms\"><a href=\"";
-        // line 119
+        // line 116
         echo twig_escape_filter($this->env, base_url("message/add_sms"), "html", null, true);
         echo "\">SMS</a></li>
                     </ul>
@@ -207,12 +204,12 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
                         <form id=\"bug-create\">
                             <textarea class=\"form-control vertical\" rows=\"5\" placeholder=\"Wiadomość od Użytkownika\" name=\"bug_description\"></textarea>
                             <input type=\"hidden\" name=\"url_name\" value=\"";
-        // line 147
+        // line 144
         echo twig_escape_filter($this->env, current_url(), "html", null, true);
         echo "\"/>
                             <div class=\"m-b-xs\"></div>
-                            <button type=\"submit\" class=\"btn btn-default\" id=\"send-bug\" data-url=\"";
-        // line 149
+                            <button type=\"submit\" class=\"btn btn-default btn-block\" id=\"send-bug\" data-url=\"";
+        // line 146
         echo twig_escape_filter($this->env, base_url("dashboard/send_bug"), "html", null, true);
         echo "\">Wyślij</button>
                         </form>
@@ -237,21 +234,21 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
     <!-- End navigation-->
 
 ";
-        // line 171
+        // line 168
         $this->displayBlock('body', $context, $blocks);
-        // line 172
+        // line 169
         echo "
 <!-- Vendor scripts -->
 ";
-        // line 174
+        // line 171
         $this->displayBlock('vendor_scripts', $context, $blocks);
-        // line 187
+        // line 184
         echo "
 <!-- App scripts -->
 ";
-        // line 189
+        // line 186
         $this->displayBlock('app_scripts', $context, $blocks);
-        // line 192
+        // line 189
         echo "
 <script>
     \$(document).ready(function () {
@@ -304,9 +301,9 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
 
 
     ";
-        // line 243
+        // line 240
         $this->displayBlock('jq_scripts', $context, $blocks);
-        // line 246
+        // line 243
         echo "    });
 </script>
 
@@ -363,75 +360,75 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
     ";
     }
 
-    // line 171
+    // line 168
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 174
+    // line 171
     public function block_vendor_scripts($context, array $blocks = array())
     {
-        // line 175
+        // line 172
         echo "<script src=\"";
         echo twig_escape_filter($this->env, base_url("assets/vendor/pacejs/pace.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 176
+        // line 173
         echo twig_escape_filter($this->env, base_url("assets/vendor/jquery/dist/jquery.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 177
+        // line 174
         echo twig_escape_filter($this->env, base_url("assets/vendor/bootstrap/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 178
+        // line 175
         echo twig_escape_filter($this->env, base_url("assets/vendor/toastr/toastr.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 179
+        // line 176
         echo twig_escape_filter($this->env, base_url("assets/vendor/sparkline/index.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 180
+        // line 177
         echo twig_escape_filter($this->env, base_url("assets/vendor/flot/jquery.flot.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 181
+        // line 178
         echo twig_escape_filter($this->env, base_url("assets/vendor/flot/jquery.flot.resize.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 182
+        // line 179
         echo twig_escape_filter($this->env, base_url("assets/vendor/flot/jquery.flot.spline.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 183
+        // line 180
         echo twig_escape_filter($this->env, base_url("assets/vendor/bootstrap3-editable/js/bootstrap-editable.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 184
+        // line 181
         echo twig_escape_filter($this->env, base_url("assets/vendor/jquery-validation/jquery.validate.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 185
+        // line 182
         echo twig_escape_filter($this->env, base_url("assets/vendor/jquery-validation/localization/messages_pl.min.js"), "html", null, true);
         echo "\"></script>
 ";
     }
 
-    // line 189
+    // line 186
     public function block_app_scripts($context, array $blocks = array())
     {
-        // line 190
+        // line 187
         echo "<script src=\"";
         echo twig_escape_filter($this->env, base_url("assets/scripts/luna.js"), "html", null, true);
         echo "\"></script>
 ";
     }
 
-    // line 243
+    // line 240
     public function block_jq_scripts($context, array $blocks = array())
     {
-        // line 244
+        // line 241
         echo "        
     ";
     }
@@ -448,7 +445,7 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
 
     public function getDebugInfo()
     {
-        return array (  435 => 244,  432 => 243,  425 => 190,  422 => 189,  416 => 185,  412 => 184,  408 => 183,  404 => 182,  400 => 181,  396 => 180,  392 => 179,  388 => 178,  384 => 177,  380 => 176,  375 => 175,  372 => 174,  367 => 171,  361 => 27,  357 => 26,  353 => 25,  348 => 24,  345 => 23,  339 => 19,  335 => 18,  331 => 17,  327 => 16,  322 => 15,  319 => 14,  310 => 246,  308 => 243,  255 => 192,  253 => 189,  249 => 187,  247 => 174,  243 => 172,  241 => 171,  216 => 149,  211 => 147,  180 => 119,  176 => 118,  160 => 105,  156 => 104,  144 => 95,  140 => 94,  125 => 82,  105 => 65,  101 => 64,  97 => 63,  80 => 49,  76 => 48,  55 => 29,  53 => 23,  49 => 21,  47 => 14,  37 => 11,  25 => 1,);
+        return array (  432 => 241,  429 => 240,  422 => 187,  419 => 186,  413 => 182,  409 => 181,  405 => 180,  401 => 179,  397 => 178,  393 => 177,  389 => 176,  385 => 175,  381 => 174,  377 => 173,  372 => 172,  369 => 171,  364 => 168,  358 => 27,  354 => 26,  350 => 25,  345 => 24,  342 => 23,  336 => 19,  332 => 18,  328 => 17,  324 => 16,  319 => 15,  316 => 14,  307 => 243,  305 => 240,  252 => 189,  250 => 186,  246 => 184,  244 => 171,  240 => 169,  238 => 168,  213 => 146,  208 => 144,  177 => 116,  173 => 115,  157 => 102,  153 => 101,  141 => 92,  137 => 91,  122 => 79,  102 => 62,  98 => 61,  94 => 60,  80 => 49,  76 => 48,  55 => 29,  53 => 23,  49 => 21,  47 => 14,  37 => 11,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -518,9 +515,6 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
                         <i class=\"stroke-hamburgermenu\"></i>
                     </a>
                 </div>
-                <form class=\"navbar-form navbar-left\">
-                    <input type=\"text\" class=\"form-control\" placeholder=\"Search data for analysis\" style=\"width: 175px\">
-                </form>
                 <ul class=\"nav navbar-nav navbar-right\">
                     <li class=\" profil-link\">
                         <a href=\"{{ base_url('auth/logout') }}\">
@@ -609,7 +603,7 @@ class __TwigTemplate_219db80b4048d9c1e758f41ccb32610f35a3407fc76b9222592533fd177
                             <textarea class=\"form-control vertical\" rows=\"5\" placeholder=\"Wiadomość od Użytkownika\" name=\"bug_description\"></textarea>
                             <input type=\"hidden\" name=\"url_name\" value=\"{{ current_url() }}\"/>
                             <div class=\"m-b-xs\"></div>
-                            <button type=\"submit\" class=\"btn btn-default\" id=\"send-bug\" data-url=\"{{ base_url('dashboard/send_bug') }}\">Wyślij</button>
+                            <button type=\"submit\" class=\"btn btn-default btn-block\" id=\"send-bug\" data-url=\"{{ base_url('dashboard/send_bug') }}\">Wyślij</button>
                         </form>
                     </div>
                     <!--

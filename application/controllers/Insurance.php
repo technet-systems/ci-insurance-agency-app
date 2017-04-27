@@ -96,7 +96,7 @@ class Insurance extends MY_Controller {
                     }
                     
                     if($this->input->post('in_link_description') != NULL) {
-                        $in_link_description = $insurance->link_description;
+                        $in_link_description = $insurance->in_link_description;
                     } else {
                         $in_link_description = '<span style="font-style: italic; color: #DD1144;">Brak danych</span>';
                     }
@@ -150,6 +150,10 @@ class Insurance extends MY_Controller {
     }
     
     public function edit() {
+        // dla potrzeb sprawdzenia dat (in_fdate <= in_ldate) przekazujemy do $this->data[] potrzebne wartości
+        $this->data['in_id_temp'] = $this->input->post('pk');
+        $this->date['in_date_temp'] = $this->input->post('name');
+        
         // z uwagi na używany prefix kolumn w tabeli BD trzeba zrobić nw. obejście aby 
         $_POST[$this->input->post('name')] = $this->input->post('value');
         // /z uwagi na używany prefix kolumn w tabeli BD trzeba zrobić nw. obejście
@@ -199,5 +203,25 @@ class Insurance extends MY_Controller {
             echo json_encode(array('status' => 0, 'msg' => 'Coś poszło nie tak'));
         }
         
+    }
+    
+    public function date_check($in_date) {
+        if($this->input->post('name') == 'in_fdate') {
+            $check = $this->insurance_m->get($this->input->post('pk'));
+            if($in_date <= $check->in_ldate) {
+                return TRUE;
+            } else {
+                $this->form_validation->set_message('date_check', 'Data ' . $in_date . ' jest nieprawidłowa');
+                return FALSE;
+            }
+        } elseif ($this->input->post('name') == 'in_ldate') {
+            $check = $this->insurance_m->get($this->input->post('pk'));
+            if($check->in_fdate <= $in_date) {
+                return TRUE;
+            } else {
+                $this->form_validation->set_message('date_check', 'Data ' . $in_date . ' jest nieprawidłowa');
+                return FALSE;
+            }
+        }
     }
 }

@@ -23,7 +23,7 @@
                                 <i class="pe page-header-icon pe-7s-users"></i>
                             </div>
                             <div class="header-title">
-                                <h3 class="m-b-xs">Produkty Ubezpieczeniowe | {{ company.co_name }}</h3>
+                                <h3 class="m-b-xs">Produkty Ubezpieczeniowe | {{ company.co_name|upper }}</h3>
                                 <button class="btn btn-sm btn-success pull-right" data-toggle="modal" data-target="#modalADD">Dodaj produkt</button>
                                 <small>
                                     Tabelaryczny podgląd produktów ubezpieczeniowych wybranego Towarzystwa Ubezpieczeniowego
@@ -53,16 +53,15 @@
                                             <tr>
                                                 <th>Nazwa</th>
                                                 <th width="150">Uwagi</th>
-                                                <th width="150">Akcja</th>
+                                                <th width="50">Akcja</th>
                                             </tr>
                                         </thead>
                                         <tbody id="product-table">
                                             {% for product in products %}
                                             <tr id="pr_id-{{ product.pr_id }}">
-                                                <td><a href="#" class="popup_edit" data-type="text" data-pk="{{ product.pr_id }}" data-title="Zmiana danych" data-url="{{ base_url('product/edit') }}" data-name="pr_name">{{ product.pr_name }}</a></td>
-                                                <td><a href="#" class="popup_edit" data-type="textarea" data-pk="{{ product.pr_id }}" data-title="Zmiana e-mail" data-url="{{ base_url('product/edit') }}" data-name="pr_notice">{{ product.pr_notice }}</a></td>
+                                                <td><a href="#" class="popup_edit" data-type="text" data-pk="{{ product.pr_id }}" data-url="{{ base_url('product/edit') }}" data-name="pr_name">{{ product.pr_name }}</a></td>
+                                                <td><a href="#" class="popup_edit" data-type="textarea" data-pk="{{ product.pr_id }}" data-url="{{ base_url('product/edit') }}" data-name="pr_notice">{{ product.pr_notice }}</a></td>
                                                 <td>
-                                                    <a href="#" class="btn btn-success btn-xs">Szczegóły</a>
                                                     <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modalDELETE-{{ product.pr_id }}"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
@@ -206,7 +205,7 @@
                     );
 
                     $('#product-table').prepend(
-                        '<tr id="pr_id-' + data.pr_id + '"><td><a href="#" class="popup_edit" data-type="text" data-pk="' + data.pr_id + '" data-title="Zmiana danych" data-url="{{ base_url('product/edit') }}" data-name="pr_name">' + data.pr_name + '</a></td><td><a href="#" class="popup_edit" data-type="textarea" data-pk="' + data.pr_id + '" data-title="Zmiana e-mail" data-url="{{ base_url('product/edit') }}" data-name="pr_notice">' + data.pr_notice + '</a></td><td><a href="#" class="btn btn-success btn-xs">Szczegóły</a><a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modalDELETE-' + data.pr_id + '"><i class="fa fa-trash"></i></a></td></tr>'
+                        '<tr id="pr_id-' + data.pr_id + '"><td><a href="#" class="popup_edit" data-type="text" data-pk="' + data.pr_id + '" data-title="Zmiana danych" data-url="{{ base_url('product/edit') }}" data-name="pr_name">' + data.pr_name + '</a></td><td><a href="#" class="popup_edit" data-type="textarea" data-pk="' + data.pr_id + '" data-title="Zmiana e-mail" data-url="{{ base_url('product/edit') }}" data-name="pr_notice">' + data.pr_notice + '</a></td><td><a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modalDELETE-' + data.pr_id + '"><i class="fa fa-trash"></i></a></td></tr>'
                     );
 
                     $('#product-create').find('input:text, input:password, input:file, select, textarea').val('');

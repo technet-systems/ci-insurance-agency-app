@@ -36,6 +36,7 @@ class MY_Controller extends CI_Controller {
         $this->data['app_name'] = config_item('app_name');
         $this->data['app_ver'] = config_item('app_ver');
         $this->data['app_description'] = config_item('app_description');
+        $this->data['warning_period'] = config_item('warning_period');
         
         // Dodatkowe zabezpieczenie logowania
         $exception_uris = [

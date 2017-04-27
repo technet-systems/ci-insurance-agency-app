@@ -119,7 +119,7 @@ class __TwigTemplate_8572dbba21a448a480c43628f12a0eb7bde4ce9bf0b5d95872ec8e750ae
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"";
             // line 66
             echo twig_escape_filter($this->env, $this->getAttribute($context["client"], "cl_id", array()), "html", null, true);
-            echo "\" data-title=\"Zmiana danych\" data-url=\"";
+            echo "\" data-url=\"";
             echo twig_escape_filter($this->env, base_url("client/edit"), "html", null, true);
             echo "\" data-name=\"cl_name\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["client"], "cl_name", array()), "html", null, true);
@@ -127,7 +127,7 @@ class __TwigTemplate_8572dbba21a448a480c43628f12a0eb7bde4ce9bf0b5d95872ec8e750ae
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"";
             // line 67
             echo twig_escape_filter($this->env, $this->getAttribute($context["client"], "cl_id", array()), "html", null, true);
-            echo "\" data-title=\"Zmiana adresu\" data-url=\"";
+            echo "\" data-url=\"";
             echo twig_escape_filter($this->env, base_url("client/edit"), "html", null, true);
             echo "\" data-name=\"cl_address\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["client"], "cl_address", array()), "html", null, true);
@@ -135,7 +135,7 @@ class __TwigTemplate_8572dbba21a448a480c43628f12a0eb7bde4ce9bf0b5d95872ec8e750ae
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"";
             // line 68
             echo twig_escape_filter($this->env, $this->getAttribute($context["client"], "cl_id", array()), "html", null, true);
-            echo "\" data-title=\"Zmiana e-mail\" data-url=\"";
+            echo "\" data-url=\"";
             echo twig_escape_filter($this->env, base_url("client/edit"), "html", null, true);
             echo "\" data-name=\"cl_email\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["client"], "cl_email", array()), "html", null, true);
@@ -143,7 +143,7 @@ class __TwigTemplate_8572dbba21a448a480c43628f12a0eb7bde4ce9bf0b5d95872ec8e750ae
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"";
             // line 69
             echo twig_escape_filter($this->env, $this->getAttribute($context["client"], "cl_id", array()), "html", null, true);
-            echo "\" data-title=\"Zmiana e-mail\" data-url=\"";
+            echo "\" data-url=\"";
             echo twig_escape_filter($this->env, base_url("client/edit"), "html", null, true);
             echo "\" data-name=\"cl_phone\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["client"], "cl_phone", array()), "html", null, true);
@@ -151,15 +151,15 @@ class __TwigTemplate_8572dbba21a448a480c43628f12a0eb7bde4ce9bf0b5d95872ec8e750ae
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"";
             // line 70
             echo twig_escape_filter($this->env, $this->getAttribute($context["client"], "cl_id", array()), "html", null, true);
-            echo "\" data-title=\"Zmiana e-mail\" data-url=\"";
+            echo "\" data-url=\"";
             echo twig_escape_filter($this->env, base_url("client/edit"), "html", null, true);
             echo "\" data-name=\"cl_identity\">";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["client"], "cl_identity", array()), "html", null, true);
+            echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, $this->getAttribute($context["client"], "cl_identity", array())), "html", null, true);
             echo "</a></td>
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"textarea\" data-pk=\"";
             // line 71
             echo twig_escape_filter($this->env, $this->getAttribute($context["client"], "cl_id", array()), "html", null, true);
-            echo "\" data-title=\"Zmiana e-mail\" data-url=\"";
+            echo "\" data-url=\"";
             echo twig_escape_filter($this->env, base_url("client/edit"), "html", null, true);
             echo "\" data-name=\"cl_notice\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["client"], "cl_notice", array()), "html", null, true);
@@ -167,7 +167,7 @@ class __TwigTemplate_8572dbba21a448a480c43628f12a0eb7bde4ce9bf0b5d95872ec8e750ae
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"select\" data-pk=\"";
             // line 72
             echo twig_escape_filter($this->env, $this->getAttribute($context["client"], "cl_id", array()), "html", null, true);
-            echo "\" data-title=\"Zmiana e-mail\" data-url=\"";
+            echo "\" data-url=\"";
             echo twig_escape_filter($this->env, base_url("client/edit"), "html", null, true);
             echo "\" data-name=\"cl_process\" data-value=\"";
             echo twig_escape_filter($this->env, $this->getAttribute($context["client"], "cl_process", array()), "html", null, true);
@@ -449,13 +449,13 @@ class __TwigTemplate_8572dbba21a448a480c43628f12a0eb7bde4ce9bf0b5d95872ec8e750ae
                                         <tbody>
                                             {% for client in clients %}
                                             <tr id=\"cl_id-{{ client.cl_id }}\">
-                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"{{ client.cl_id }}\" data-title=\"Zmiana danych\" data-url=\"{{ base_url('client/edit') }}\" data-name=\"cl_name\">{{ client.cl_name }}</a></td>
-                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"{{ client.cl_id }}\" data-title=\"Zmiana adresu\" data-url=\"{{ base_url('client/edit') }}\" data-name=\"cl_address\">{{ client.cl_address }}</a></td>
-                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"{{ client.cl_id }}\" data-title=\"Zmiana e-mail\" data-url=\"{{ base_url('client/edit') }}\" data-name=\"cl_email\">{{ client.cl_email }}</a></td>
-                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"{{ client.cl_id }}\" data-title=\"Zmiana e-mail\" data-url=\"{{ base_url('client/edit') }}\" data-name=\"cl_phone\">{{ client.cl_phone }}</a></td>
-                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"{{ client.cl_id }}\" data-title=\"Zmiana e-mail\" data-url=\"{{ base_url('client/edit') }}\" data-name=\"cl_identity\">{{ client.cl_identity }}</a></td>
-                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"textarea\" data-pk=\"{{ client.cl_id }}\" data-title=\"Zmiana e-mail\" data-url=\"{{ base_url('client/edit') }}\" data-name=\"cl_notice\">{{ client.cl_notice }}</a></td>
-                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"select\" data-pk=\"{{ client.cl_id }}\" data-title=\"Zmiana e-mail\" data-url=\"{{ base_url('client/edit') }}\" data-name=\"cl_process\" data-value=\"{{ client.cl_process }}\" data-source=\"[{'value':'Jest zgoda', 'text':'Jest zgoda'},{'value':'Brak zgody', 'text':'Brak zgody'}]\">{{ client.cl_process }}</a></td>
+                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"{{ client.cl_id }}\" data-url=\"{{ base_url('client/edit') }}\" data-name=\"cl_name\">{{ client.cl_name }}</a></td>
+                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"{{ client.cl_id }}\" data-url=\"{{ base_url('client/edit') }}\" data-name=\"cl_address\">{{ client.cl_address }}</a></td>
+                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"{{ client.cl_id }}\" data-url=\"{{ base_url('client/edit') }}\" data-name=\"cl_email\">{{ client.cl_email }}</a></td>
+                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"{{ client.cl_id }}\" data-url=\"{{ base_url('client/edit') }}\" data-name=\"cl_phone\">{{ client.cl_phone }}</a></td>
+                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"{{ client.cl_id }}\" data-url=\"{{ base_url('client/edit') }}\" data-name=\"cl_identity\">{{ client.cl_identity|capitalize }}</a></td>
+                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"textarea\" data-pk=\"{{ client.cl_id }}\" data-url=\"{{ base_url('client/edit') }}\" data-name=\"cl_notice\">{{ client.cl_notice }}</a></td>
+                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"select\" data-pk=\"{{ client.cl_id }}\" data-url=\"{{ base_url('client/edit') }}\" data-name=\"cl_process\" data-value=\"{{ client.cl_process }}\" data-source=\"[{'value':'Jest zgoda', 'text':'Jest zgoda'},{'value':'Brak zgody', 'text':'Brak zgody'}]\">{{ client.cl_process }}</a></td>
                                                 <td>
                                                     <a href=\"{{ base_url('insurance/all/' ~ client.cl_id ) }}\" class=\"btn btn-success btn-xs\">Szczegóły</a>
                                                     <a href=\"#\" class=\"btn btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#modalDELETE-{{ client.cl_id }}\"><i class=\"fa fa-trash\"></i></a>

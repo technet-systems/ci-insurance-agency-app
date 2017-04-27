@@ -45,7 +45,7 @@ $(document).ready(function () {
         hpanel.remove();
     });
     
-    // Rozwijanie bocznego menu w zależności od pierwszego segmentu URL'a
+    // START Rozwijanie bocznego menu w zależności od pierwszego segmentu URL'a
     var pathName = window.location.pathname;
     var controlerName = pathName.split('/')[2];
     var methodName = pathName.split('/')[3];
@@ -64,6 +64,9 @@ $(document).ready(function () {
         } else if(methodName === 'all') {
             $('#client-submenu-all').addClass('active');
         }
+    } else if(controlerName === 'insurance') {
+        $('#client-menu').addClass('active');
+        $('#client-submenu').addClass('in');
     } else if(controlerName === 'company') {
         $('#company-menu').addClass('active');
         $('#company-submenu').addClass('in');
@@ -72,6 +75,9 @@ $(document).ready(function () {
         } else if(methodName === 'all') {
             $('#company-submenu-all').addClass('active');
         }
+    } else if(controlerName === 'product') {
+        $('#company-menu').addClass('active');
+        $('#company-submenu').addClass('in');
     } else if(controlerName === 'message') {
         $('#message-menu').addClass('active');
         $('#message-submenu').addClass('in');
@@ -81,5 +87,5 @@ $(document).ready(function () {
             $('#message-submenu-add-sms').addClass('active');
         }
     } 
-    // /.Rozwijanie bocznego menu w zależności od pierwszego segmentu URL'a
+    // END Rozwijanie bocznego menu w zależności od pierwszego segmentu URL'a
 });

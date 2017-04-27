@@ -105,14 +105,14 @@ class Insurance_m extends MY_Model
                 'in_fdate' => [
                     'field' => 'in_fdate',
                     'label' => 'Data podpisania',
-                    'rules' => 'trim|required'
+                    'rules' => 'trim|required|callback_date_check'
                 ]
             ],
             'in_ldate' => [
                 'in_ldate' => [
                     'field' => 'in_ldate',
                     'label' => 'Data wygaśnięcia',
-                    'rules' => 'trim|required'
+                    'rules' => 'trim|required|callback_date_check'
                 ]
             ],
             'in_link_description' => [
@@ -138,4 +138,5 @@ class Insurance_m extends MY_Model
             ]
         ]
     ];
+    
 }

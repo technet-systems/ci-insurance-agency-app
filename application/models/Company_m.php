@@ -38,7 +38,7 @@ class Company_m extends MY_Model
             'co_name' => [
                 'field' => 'co_name',
                 'label' => 'Nazwa Ubezpieczyciela',
-                'rules' => 'trim|required|is_unique[companies.co_name]',
+                'rules' => 'trim|required|callback_company_check',
             ],
             'co_notice' => [
                 'field' => 'co_notice',
@@ -51,7 +51,7 @@ class Company_m extends MY_Model
                 'co_name' => [
                     'field' => 'co_name',
                     'label' => 'Nazwa Ubezpieczyciela',
-                    'rules' => 'trim|required|is_unique[companies.co_name]',
+                    'rules' => 'trim|required|callback_company_check',
                 ]
             ],
             'co_notice' => [

@@ -11,7 +11,7 @@ class Company extends MY_Controller {
     }
     
     public function all() {
-        $this->data['companies'] = $this->company_m->get_all();
+        $this->data['companies'] = $this->company_m->where('co_us_id', $this->data['us_id'])->get_all();
         $this->twig->display('company/all', $this->data);
     }
     
@@ -68,6 +68,15 @@ class Company extends MY_Controller {
         } else {
             echo json_encode(array('status' => 0, 'msg' => 'Coś poszło nie tak'));
         }
-        
+    }
+    
+    public function company_check($co_name) {
+        $check = $this->company_m->where(array('co_name' => $co_name, 'co_us_id' => $this->data['us_id']))->get();
+        if($check == FALSE) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('company_check', 'Towarzystwo ' . $co_name . ' jest już w bazie');
+            return FALSE;
+        }
     }
 }

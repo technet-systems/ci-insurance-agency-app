@@ -199,7 +199,7 @@ class __TwigTemplate_28f13130a63bc6f9ed60c467cb9bf39eae65456777bb25b4b40b398d7dd
                 echo "</td>
                                                 <td class=\"";
                 // line 120
-                echo ((((twig_date_format_filter($this->env, $this->getAttribute($context["insurance"], "in_ldate", array()), "U") - twig_date_format_filter($this->env, "now", "U")) >= 604800)) ? ("text-warning") : ("text-danger"));
+                echo ((((twig_date_format_filter($this->env, $this->getAttribute($context["insurance"], "in_ldate", array()), "U") - twig_date_format_filter($this->env, "now", "U")) >= (isset($context["warning_period"]) ? $context["warning_period"] : null))) ? ("text-warning") : ("text-danger"));
                 echo "\">";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["insurance"], "in_ldate", array()), "html", null, true);
                 echo "</td>
@@ -829,7 +829,7 @@ class __TwigTemplate_28f13130a63bc6f9ed60c467cb9bf39eae65456777bb25b4b40b398d7dd
                                                 <td><span class=\"label label-primary\">{{ insurance.in_pr_name }}</span></td>
                                                 <td>{{ insurance.in_co_name }}</td>
                                                 <td>{{ insurance.in_identity }}</td>
-                                                <td class=\"{{ insurance.in_ldate|date('U') - 'now'|date('U') >= 604800 ? 'text-warning' : 'text-danger' }}\">{{ insurance.in_ldate }}</td>
+                                                <td class=\"{{ insurance.in_ldate|date('U') - 'now'|date('U') >= warning_period ? 'text-warning' : 'text-danger' }}\">{{ insurance.in_ldate }}</td>
                                                 <td><a href=\"{{ base_url('insurance/read/' ~ insurance.in_link) }}\" target=\"_blank\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"{{ insurance.in_link_description }}\"><i class=\"fa fa-file\"></i></a></td>
                                                 <td>{{ insurance.in_notice }}</td>
                                                 <td>

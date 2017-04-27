@@ -27,17 +27,17 @@ class Dashboard extends MY_Controller {
          */
         
         // Client Box
-        $this->data['box_client_all'] = $this->client_m->count_rows();
+        $this->data['box_client_all'] = $this->client_m->where('cl_us_id', $this->data['us_id'])->count_rows();
         
         // Insurance Box
-        $this->data['box_insurance_all'] = $this->insurance_m->count_rows();
-        
+        $this->data['box_insurance_all'] = $this->insurance_m->where('in_us_id', $this->data['us_id'])->count_rows();
+//        dump($this->data['box_insurance_all']);die;
         // E-mail Box
-        $this->data['box_email_all'] = $this->outbox_m->where('ou_type', 'email')->where(array('ou_created_at >=' => date('Y-m-01 00:00:00'), 'ou_created_at <' => date('Y-m-t 23:59:59')))->count_rows();
+        $this->data['box_email_all'] = $this->outbox_m->where('ou_type', 'email')->where(array('ou_created_at >=' => date('Y-m-01 00:00:00'), 'ou_created_at <' => date('Y-m-t 23:59:59'), 'ou_us_id' => $this->data['us_id']))->count_rows();
 
         
         // SMS Box
-        $this->data['box_sms_all'] = $this->outbox_m->where('ou_type', 'sms')->where(array('ou_created_at >=' => date('Y-m-01 00:00:00'), 'ou_created_at <' => date('Y-m-t 23:59:59')))->count_rows();
+        $this->data['box_sms_all'] = $this->outbox_m->where('ou_type', 'sms')->where(array('ou_created_at >=' => date('Y-m-01 00:00:00'), 'ou_created_at <' => date('Y-m-t 23:59:59'), 'ou_us_id' => $this->data['us_id']))->count_rows();
         
         /**
          * KONIEC - WYCIĄGNIĘCIE DANYCH DLA POSZCZEGÓLNYCH BOX'ÓW

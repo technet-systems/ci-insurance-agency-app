@@ -59,7 +59,7 @@ class Client_m extends MY_Model
             'cl_identity' => [
                 'field' => 'cl_identity',
                 'label' => 'Identyfikacja',
-                'rules' => 'trim|alpha_numeric|exact_length[11]|is_unique[clients.cl_identity]'
+                'rules' => 'trim|alpha_numeric|exact_length[11]|callback_client_check'
             ],
             'cl_notice' => [
                 'field' => 'cl_notice',
@@ -100,7 +100,7 @@ class Client_m extends MY_Model
                 'cl_identity' => [
                     'field' => 'cl_identity',
                     'label' => 'Identyfikacja',
-                    'rules' => 'trim|alpha_numeric|exact_length[11]|is_unique[clients.cl_identity]'
+                    'rules' => 'trim|alpha_numeric|exact_length[11]|callback_client_check'
                 ],
             ],
             'cl_notice' => [

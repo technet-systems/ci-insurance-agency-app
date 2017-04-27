@@ -114,15 +114,15 @@ class __TwigTemplate_586cb4498cc24f5547087454d0821e1ba7d72bf5eaf534f417a69cbb50d
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"";
             // line 61
             echo twig_escape_filter($this->env, $this->getAttribute($context["company"], "co_id", array()), "html", null, true);
-            echo "\" data-title=\"Zmiana danych\" data-url=\"";
+            echo "\" data-url=\"";
             echo twig_escape_filter($this->env, base_url("company/edit"), "html", null, true);
             echo "\" data-name=\"co_name\">";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["company"], "co_name", array()), "html", null, true);
+            echo twig_escape_filter($this->env, twig_upper_filter($this->env, $this->getAttribute($context["company"], "co_name", array())), "html", null, true);
             echo "</a></td>
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"textarea\" data-pk=\"";
             // line 62
             echo twig_escape_filter($this->env, $this->getAttribute($context["company"], "co_id", array()), "html", null, true);
-            echo "\" data-title=\"Zmiana e-mail\" data-url=\"";
+            echo "\" data-url=\"";
             echo twig_escape_filter($this->env, base_url("company/edit"), "html", null, true);
             echo "\" data-name=\"co_notice\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["company"], "co_notice", array()), "html", null, true);
@@ -393,8 +393,8 @@ class __TwigTemplate_586cb4498cc24f5547087454d0821e1ba7d72bf5eaf534f417a69cbb50d
                                         <tbody>
                                             {% for company in companies %}
                                             <tr id=\"co_id-{{ company.co_id }}\">
-                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"{{ company.co_id }}\" data-title=\"Zmiana danych\" data-url=\"{{ base_url('company/edit') }}\" data-name=\"co_name\">{{ company.co_name }}</a></td>
-                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"textarea\" data-pk=\"{{ company.co_id }}\" data-title=\"Zmiana e-mail\" data-url=\"{{ base_url('company/edit') }}\" data-name=\"co_notice\">{{ company.co_notice }}</a></td>
+                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"{{ company.co_id }}\" data-url=\"{{ base_url('company/edit') }}\" data-name=\"co_name\">{{ company.co_name|upper }}</a></td>
+                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"textarea\" data-pk=\"{{ company.co_id }}\" data-url=\"{{ base_url('company/edit') }}\" data-name=\"co_notice\">{{ company.co_notice }}</a></td>
                                                 <td>
                                                     <a href=\"{{ base_url('product/all/' ~ company.co_id) }}\" class=\"btn btn-success btn-xs\">Szczegóły</a>
                                                     <a href=\"#\" class=\"btn btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#modalDELETE-{{ company.co_id }}\"><i class=\"fa fa-trash\"></i></a>

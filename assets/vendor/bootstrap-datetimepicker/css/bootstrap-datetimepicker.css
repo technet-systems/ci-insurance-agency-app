@@ -271,10 +271,15 @@
   color: #fff;
   background: #000;
 }
+.bootstrap-datetimepicker-widget table thead tr th {
+  cursor: pointer;
+  color: #000;
+}
 .bootstrap-datetimepicker-widget table td {
   height: 54px;
   line-height: 54px;
   width: 54px;
+  color: #f6a821;
 }
 .bootstrap-datetimepicker-widget table td.cw {
   font-size: .8em;

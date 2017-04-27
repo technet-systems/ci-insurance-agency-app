@@ -25,7 +25,7 @@
                                 <i class="pe page-header-icon pe-7s-user"></i>
                             </div>
                             <div class="header-title">
-                                <h3 class="m-b-xs">{{ client.cl_name }} | <a href="#" class="popup_edit" data-type="select" data-pk="{{ client.cl_id }}" data-title="Zmiana e-mail" data-url="{{ base_url('client/edit') }}" data-name="cl_process" data-value="{{ client.cl_process }}" data-source="[{'value':'Jest zgoda', 'text':'Jest zgoda'},{'value':'Brak zgody', 'text':'Brak zgody'}]">{{ client.cl_process }}</a></h3>
+                                <h3 class="m-b-xs">{{ client.cl_name }} | <a href="#" class="popup_edit" data-type="select" data-pk="{{ client.cl_id }}" data-url="{{ base_url('client/edit') }}" data-name="cl_process" data-value="{{ client.cl_process }}" data-source="[{'value':'Jest zgoda', 'text':'Jest zgoda'},{'value':'Brak zgody', 'text':'Brak zgody'}]">{{ client.cl_process }}</a></h3>
                                 <button class="btn btn-sm btn-success pull-right" data-toggle="modal" data-target="#modalADD">Dodaj polisę</button>
                                 <small>
                                     Tabelaryczny podgląd wszystkich polis Klienta
@@ -67,15 +67,15 @@
                                         <tbody id="insurance-table">
                                             {% for insurance in insurances %}
                                             <tr id="in_id-{{ insurance.in_id }}">
-                                                <td><a href="#" class="popup_edit" data-type="text" data-pk="{{ insurance.in_id }}" data-title="Zmiana danych" data-url="{{ base_url('insurance/edit') }}" data-name="in_pr_name">{{ insurance.in_pr_name }}</a></td>
-                                                <td><a href="#" class="popup_edit" data-type="text" data-pk="{{ insurance.in_id }}" data-title="Zmiana danych" data-url="{{ base_url('insurance/edit') }}" data-name="in_co_name">{{ insurance.in_co_name }}</a></td>
-                                                <td><a href="#" class="popup_edit" data-type="text" data-pk="{{ insurance.in_id }}" data-title="Zmiana danych" data-url="{{ base_url('insurance/edit') }}" data-name="in_identity">{{ insurance.in_identity }}</a></td>
-                                                <td><a href="#" class="popup_edit" data-type="text" data-pk="{{ insurance.in_id }}" data-title="Zmiana danych" data-url="{{ base_url('insurance/edit') }}" data-name="in_fdate">{{ insurance.in_fdate }}</a></td>
-                                                <td><a href="#" class="popup_edit" data-type="text" data-pk="{{ insurance.in_id }}" data-title="Zmiana danych" data-url="{{ base_url('insurance/edit') }}" data-name="in_ldate">{{ insurance.in_ldate }}</a></td>
+                                                <td><a href="#" class="popup_edit" data-type="text" data-pk="{{ insurance.in_id }}" data-url="{{ base_url('insurance/edit') }}" data-name="in_pr_name">{{ insurance.in_pr_name }}</a></td>
+                                                <td><a href="#" class="popup_edit" data-type="text" data-pk="{{ insurance.in_id }}" data-url="{{ base_url('insurance/edit') }}" data-name="in_co_name">{{ insurance.in_co_name }}</a></td>
+                                                <td><a href="#" class="popup_edit" data-type="text" data-pk="{{ insurance.in_id }}" data-url="{{ base_url('insurance/edit') }}" data-name="in_identity">{{ insurance.in_identity }}</a></td>
+                                                <td><a href="#" class="popup_edit" data-type="combodate" data-combodate="{'minYear': '1970', 'maxYear': '2100'}" data-value="{{ insurance.in_fdate }}" data-format="YYYY-MM-DD" data-viewformat="YYYY-MM-DD" data-template="YYYY - MMM - DD" data-pk="{{ insurance.in_id }}" data-url="{{ base_url('insurance/edit') }}" data-name="in_fdate">{{ insurance.in_fdate }}</a></td>
+                                                <td><a href="#" class="popup_edit" data-type="combodate" data-combodate="{'minYear': '1970', 'maxYear': '2100'}" data-value="{{ insurance.in_ldate }}" data-format="YYYY-MM-DD" data-viewformat="YYYY-MM-DD" data-template="YYYY - MMM - DD" data-pk="{{ insurance.in_id }}" data-url="{{ base_url('insurance/edit') }}" data-name="in_ldate">{{ insurance.in_ldate }}</a></td>
                                                 <td><a href="{{ base_url('insurance/read/' ~ insurance.in_link) }}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="{{ insurance.in_link_description }}"><i class="fa fa-file"></i></a></td>
-                                                <td><a href="#" class="popup_edit" data-type="text" data-pk="{{ insurance.in_id }}" data-title="Zmiana danych" data-url="{{ base_url('insurance/edit') }}" data-name="in_link_description">{{ insurance.in_link_description }}</a></td>
-                                                <td><a href="#" class="popup_edit" data-type="textarea" data-pk="{{ insurance.in_id }}" data-title="Zmiana e-mail" data-url="{{ base_url('insurance/edit') }}" data-name="in_notice">{{ insurance.in_notice }}</a></td>
-                                                <td><a href="#" class="popup_edit" data-type="select" data-pk="{{ insurance.in_id }}" data-title="Zmiana e-mail" data-url="{{ base_url('insurance/edit') }}" data-name="in_process" data-value="{{ insurance.in_process }}" data-source="[{'value':'Jest zgoda', 'text':'Jest zgoda'},{'value':'Brak zgody', 'text':'Brak zgody'}]">{{ insurance.in_process }}</a></td>
+                                                <td><a href="#" class="popup_edit" data-type="text" data-pk="{{ insurance.in_id }}"  data-url="{{ base_url('insurance/edit') }}" data-name="in_link_description">{{ insurance.in_link_description }}</a></td>
+                                                <td><a href="#" class="popup_edit" data-type="textarea" data-pk="{{ insurance.in_id }}" data-url="{{ base_url('insurance/edit') }}" data-name="in_notice">{{ insurance.in_notice }}</a></td>
+                                                <td><a href="#" class="popup_edit" data-type="select" data-pk="{{ insurance.in_id }}" data-url="{{ base_url('insurance/edit') }}" data-name="in_process" data-value="{{ insurance.in_process }}" data-source="[{'value':'Jest zgoda', 'text':'Jest zgoda'},{'value':'Brak zgody', 'text':'Brak zgody'}]">{{ insurance.in_process }}</a></td>
                                                 <td>
                                                     <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#modalFILE-{{ insurance.in_id }}">Załącznik</a>
                                                     <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modalDELETE-{{ insurance.in_id }}"><i class="fa fa-trash"></i></a>
@@ -164,10 +164,9 @@
                                                         <div class="form-group"><label for="in_link" class="col-sm-4 control-label">Załącznik</label>
                                                             <div class="col-sm-8">
                                                                 <label class="btn btn-accent" for="in_link">
-                                                                    <input id="in_link" style="display:none;" onchange="$('#upload-file-info').html($(this).val());" type="file" name="in_link">
+                                                                    <input id="in_link" style="display:none;" onchange="$('#upload-file-info').html($(this).val().substring(0, 40) + '...');" type="file" name="in_link">
                                                                     <span id="upload-file-info">Załącznik</span>
                                                                 </label>
-                                                                <!--<input type="file" id="in_link" name="in_link">-->
                                                             </div>
                                                         </div>
 
@@ -205,11 +204,15 @@
                                                     <small><a href="{{ base_url('insurance/read/' ~ insurance.in_link) }}" target="_blank"><i class="fa fa-file"></i></a> {{ insurance.in_link_description }}</small>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form class="form-horizontal" id="file-update" enctype="multipart/form-data">
+                                                    <form class="form-horizontal" id="file-update-{{ insurance.in_id }}" enctype="multipart/form-data">
 
-                                                        <div class="form-group"><label for="in_link2" class="col-sm-4 control-label">Załącznik</label>
+                                                        <div class="form-group"><label for="in_link2-{{ insurance.in_id }}" class="col-sm-4 control-label">Załącznik</label>
                                                             <div class="col-sm-8">
-                                                                <input type="file" id="in_link2" name="in_link">
+                                                                <label class="btn btn-accent" for="in_link2-{{ insurance.in_id }}">
+                                                                    <input id="in_link2-{{ insurance.in_id }}" style="display:none;" onchange="$('#upload-file-info2-{{ insurance.in_id }}').html($(this).val().substring(0, 40) + '...');" type="file" name="in_link">
+                                                                    <span id="upload-file-info2-{{ insurance.in_id }}">Załącznik</span>
+                                                                </label>
+
                                                                 <input type="hidden" name="old_in_link" value="{{ insurance.in_link }}">
                                                             </div>
                                                         </div>
@@ -224,7 +227,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
-                                                    <button type="button" class="btn btn-accent update_submit" data-dismiss="modal" data-url="{{ base_url('insurance/update/' ~ insurance.in_id) }}">Zmień</button>
+                                                    <button type="button" class="btn btn-accent update_submit" data-dismiss="modal" data-url="{{ base_url('insurance/update/' ~ insurance.in_id) }}" data-pk="{{ insurance.in_id }}">Zmień</button>
                                                 </div>
                                                 {{ form_close() }}
                                                 
@@ -363,12 +366,13 @@
         e.preventDefault();
 
         var url = $(this).attr('data-url');
+        var id = $(this).attr('data-pk');
 
         $.ajax({
             url: url,
             type: 'POST',
             dataType: 'json',
-            data: new FormData($('#file-update')[0]),
+            data: new FormData($('#file-update-' + id)[0]),
             
             // Tell jQuery not to process data or worry about content-type
             cache: false,

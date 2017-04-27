@@ -33,7 +33,7 @@ class Product_m extends MY_Model
             'pr_name' => [
                 'field' => 'pr_name',
                 'label' => 'Nazwa Produktu',
-                'rules' => 'trim|required|is_unique[products.pr_name]',
+                'rules' => 'trim|required|callback_product_check',
             ],
             'pr_notice' => [
                 'field' => 'pr_notice',
@@ -46,7 +46,7 @@ class Product_m extends MY_Model
                 'pr_name' => [
                     'field' => 'pr_name',
                     'label' => 'Nazwa Produktu',
-                    'rules' => 'trim|required|is_unique[products.pr_name]',
+                    'rules' => 'trim|required|callback_product_check',
                 ]
             ],
             'pr_notice' => [

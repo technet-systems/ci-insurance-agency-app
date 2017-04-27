@@ -14,6 +14,8 @@ class Product extends MY_Controller {
     }
 
     public function create($co_id) {
+        $this->data['co_id_temp'] = $co_id;
+
         $rules = $this->product_m->rules['insert'];
         $id = $this->product_m->from_form($rules, array('pr_created_by'=> $this->data['us_id'], 'pr_us_id'=> $this->data['us_id'], 'pr_co_id' => $co_id))->insert();
         
@@ -33,6 +35,11 @@ class Product extends MY_Controller {
     }
     
     public function edit() {
+        // dla potrzeb metody product_check (callback) uzyskujemy co_id i przenosimy go do $this->data
+        $product = $this->product_m->get($this->input->post('pk'));
+        $this->data['co_id_temp'] = $product->pr_co_id;
+        // /dla potrzeb metody product_check (callback) uzyskujemy co_id
+                
         // z uwagi na używany prefix kolumn w tabeli BD trzeba zrobić nw. obejście aby 
         $_POST[$this->input->post('name')] = $this->input->post('value');
         // /z uwagi na używany prefix kolumn w tabeli BD trzeba zrobić nw. obejście
@@ -63,6 +70,15 @@ class Product extends MY_Controller {
         } else {
             echo json_encode(array('status' => 0, 'msg' => 'Coś poszło nie tak'));
         }
-        
+    }
+    
+    public function product_check($product) {
+        $check = $this->product_m->where(array('pr_name' => $product, 'pr_co_id' => $this->data['co_id_temp'], 'pr_us_id' => $this->data['us_id'], ))->as_array()->get_all();
+        if($check) {
+            $this->form_validation->set_message('product_check', 'Produkt ' . $product . ' już istnieje w bazie');
+            return FALSE;
+        } else {
+            return TRUE;
+        }
     }
 }

@@ -132,11 +132,6 @@ class __TwigTemplate_f9842057d9c303a70579596e8a4c26cbe9868a644e2f9bf5137a64938fa
                     
                     \$('#customer-create').find('input:text, input:password, input:file, select, textarea').val('');
                 } else {
-                /* #TOD-1#
-                    var msgs = JSON.stringify(data.msg);
-                    msg = msgs.split('\\n');
-                    alert(msg[0]);
-                */
                     setTimeout(function(){ // Run toastr notification with failture message
                         toastr.options = {
                             \"positionClass\": \"toast-top-right\",
@@ -281,11 +276,6 @@ class __TwigTemplate_f9842057d9c303a70579596e8a4c26cbe9868a644e2f9bf5137a64938fa
                     
                     \$('#customer-create').find('input:text, input:password, input:file, select, textarea').val('');
                 } else {
-                /* #TOD-1#
-                    var msgs = JSON.stringify(data.msg);
-                    msg = msgs.split('\\n');
-                    alert(msg[0]);
-                */
                     setTimeout(function(){ // Run toastr notification with failture message
                         toastr.options = {
                             \"positionClass\": \"toast-top-right\",

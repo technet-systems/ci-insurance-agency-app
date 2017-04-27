@@ -71,7 +71,7 @@ class __TwigTemplate_3eacd761c23236f092b2b19c632198047f4e825c2f7cb83b6c5b42e80f5
                             <div class=\"header-title\">
                                 <h3 class=\"m-b-xs\">Produkty Ubezpieczeniowe | ";
         // line 26
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["company"]) ? $context["company"] : null), "co_name", array()), "html", null, true);
+        echo twig_escape_filter($this->env, twig_upper_filter($this->env, $this->getAttribute((isset($context["company"]) ? $context["company"] : null), "co_name", array())), "html", null, true);
         echo "</h3>
                                 <button class=\"btn btn-sm btn-success pull-right\" data-toggle=\"modal\" data-target=\"#modalADD\">Dodaj produkt</button>
                                 <small>
@@ -102,7 +102,7 @@ class __TwigTemplate_3eacd761c23236f092b2b19c632198047f4e825c2f7cb83b6c5b42e80f5
                                             <tr>
                                                 <th>Nazwa</th>
                                                 <th width=\"150\">Uwagi</th>
-                                                <th width=\"150\">Akcja</th>
+                                                <th width=\"50\">Akcja</th>
                                             </tr>
                                         </thead>
                                         <tbody id=\"product-table\">
@@ -118,7 +118,7 @@ class __TwigTemplate_3eacd761c23236f092b2b19c632198047f4e825c2f7cb83b6c5b42e80f5
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"";
             // line 62
             echo twig_escape_filter($this->env, $this->getAttribute($context["product"], "pr_id", array()), "html", null, true);
-            echo "\" data-title=\"Zmiana danych\" data-url=\"";
+            echo "\" data-url=\"";
             echo twig_escape_filter($this->env, base_url("product/edit"), "html", null, true);
             echo "\" data-name=\"pr_name\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["product"], "pr_name", array()), "html", null, true);
@@ -126,15 +126,14 @@ class __TwigTemplate_3eacd761c23236f092b2b19c632198047f4e825c2f7cb83b6c5b42e80f5
                                                 <td><a href=\"#\" class=\"popup_edit\" data-type=\"textarea\" data-pk=\"";
             // line 63
             echo twig_escape_filter($this->env, $this->getAttribute($context["product"], "pr_id", array()), "html", null, true);
-            echo "\" data-title=\"Zmiana e-mail\" data-url=\"";
+            echo "\" data-url=\"";
             echo twig_escape_filter($this->env, base_url("product/edit"), "html", null, true);
             echo "\" data-name=\"pr_notice\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["product"], "pr_notice", array()), "html", null, true);
             echo "</a></td>
                                                 <td>
-                                                    <a href=\"#\" class=\"btn btn-success btn-xs\">Szczegóły</a>
                                                     <a href=\"#\" class=\"btn btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#modalDELETE-";
-            // line 66
+            // line 65
             echo twig_escape_filter($this->env, $this->getAttribute($context["product"], "pr_id", array()), "html", null, true);
             echo "\"><i class=\"fa fa-trash\"></i></a>
                                                 </td>
@@ -144,7 +143,7 @@ class __TwigTemplate_3eacd761c23236f092b2b19c632198047f4e825c2f7cb83b6c5b42e80f5
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 70
+        // line 69
         echo "                                        </tbody>
                                     </table>
                                     
@@ -175,7 +174,7 @@ class __TwigTemplate_3eacd761c23236f092b2b19c632198047f4e825c2f7cb83b6c5b42e80f5
                                                 <div class=\"modal-footer\">
                                                     <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Anuluj</button>
                                                     <button type=\"button\" class=\"btn btn-accent\" data-dismiss=\"modal\" id=\"add_submit\" data-url=\"";
-        // line 99
+        // line 98
         echo twig_escape_filter($this->env, base_url(("product/create/" . $this->getAttribute((isset($context["company"]) ? $context["company"] : null), "co_id", array()))), "html", null, true);
         echo "\">Dodaj</button>
                                                 </div>
@@ -184,11 +183,11 @@ class __TwigTemplate_3eacd761c23236f092b2b19c632198047f4e825c2f7cb83b6c5b42e80f5
                                     </div>
                                         
                                     ";
-        // line 105
+        // line 104
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["products"]) ? $context["products"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["product"]) {
-            // line 106
+            // line 105
             echo "                                    <div class=\"modal fade\" id=\"modalDELETE-";
             echo twig_escape_filter($this->env, $this->getAttribute($context["product"], "pr_id", array()), "html", null, true);
             echo "\" tabindex=\"-1\" role=\"dialog\" aria-hidden=\"true\" style=\"display: none;\">
@@ -200,14 +199,14 @@ class __TwigTemplate_3eacd761c23236f092b2b19c632198047f4e825c2f7cb83b6c5b42e80f5
                                                 </div>
                                                 <div class=\"modal-body\">
                                                     <h3 class=\"m-t-none text-center\">";
-            // line 114
+            // line 113
             echo twig_escape_filter($this->env, $this->getAttribute($context["product"], "pr_name", array()), "html", null, true);
             echo "</h3>
                                                 </div>
                                                 <div class=\"modal-footer\">
                                                     <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Anuluj</button>
                                                     <button type=\"button\" class=\"btn btn-danger delete_submit\" data-url=\"";
-            // line 118
+            // line 117
             echo twig_escape_filter($this->env, base_url("product/delete"), "html", null, true);
             echo "\" data-pk=\"";
             echo twig_escape_filter($this->env, $this->getAttribute($context["product"], "pr_id", array()), "html", null, true);
@@ -221,7 +220,7 @@ class __TwigTemplate_3eacd761c23236f092b2b19c632198047f4e825c2f7cb83b6c5b42e80f5
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 124
+        // line 123
         echo "
                                 </div>
 
@@ -240,24 +239,24 @@ class __TwigTemplate_3eacd761c23236f092b2b19c632198047f4e825c2f7cb83b6c5b42e80f5
 ";
     }
 
-    // line 141
+    // line 140
     public function block_vendor_scripts($context, array $blocks = array())
     {
-        // line 142
+        // line 141
         echo "    ";
         $this->displayParentBlock("vendor_scripts", $context, $blocks);
         echo "
     <script src=\"";
-        // line 143
+        // line 142
         echo twig_escape_filter($this->env, base_url("assets/vendor/datatables/datatables.min.js"), "html", null, true);
         echo "\"></script>
 ";
     }
 
-    // line 146
+    // line 145
     public function block_jq_scripts($context, array $blocks = array())
     {
-        // line 147
+        // line 146
         echo "    ";
         $this->displayParentBlock("jq_scripts", $context, $blocks);
         echo "
@@ -323,11 +322,11 @@ class __TwigTemplate_3eacd761c23236f092b2b19c632198047f4e825c2f7cb83b6c5b42e80f5
 
                     \$('#product-table').prepend(
                         '<tr id=\"pr_id-' + data.pr_id + '\"><td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"' + data.pr_id + '\" data-title=\"Zmiana danych\" data-url=\"";
-        // line 209
+        // line 208
         echo twig_escape_filter($this->env, base_url("product/edit"), "html", null, true);
         echo "\" data-name=\"pr_name\">' + data.pr_name + '</a></td><td><a href=\"#\" class=\"popup_edit\" data-type=\"textarea\" data-pk=\"' + data.pr_id + '\" data-title=\"Zmiana e-mail\" data-url=\"";
         echo twig_escape_filter($this->env, base_url("product/edit"), "html", null, true);
-        echo "\" data-name=\"pr_notice\">' + data.pr_notice + '</a></td><td><a href=\"#\" class=\"btn btn-success btn-xs\">Szczegóły</a><a href=\"#\" class=\"btn btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#modalDELETE-' + data.pr_id + '\"><i class=\"fa fa-trash\"></i></a></td></tr>'
+        echo "\" data-name=\"pr_notice\">' + data.pr_notice + '</a></td><td><a href=\"#\" class=\"btn btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#modalDELETE-' + data.pr_id + '\"><i class=\"fa fa-trash\"></i></a></td></tr>'
                     );
 
                     \$('#product-create').find('input:text, input:password, input:file, select, textarea').val('');
@@ -419,7 +418,7 @@ class __TwigTemplate_3eacd761c23236f092b2b19c632198047f4e825c2f7cb83b6c5b42e80f5
 
     public function getDebugInfo()
     {
-        return array (  327 => 209,  261 => 147,  258 => 146,  252 => 143,  247 => 142,  244 => 141,  225 => 124,  211 => 118,  204 => 114,  192 => 106,  188 => 105,  179 => 99,  148 => 70,  138 => 66,  128 => 63,  120 => 62,  115 => 61,  111 => 60,  74 => 26,  60 => 14,  57 => 13,  49 => 9,  46 => 8,  40 => 5,  35 => 4,  32 => 3,  11 => 1,);
+        return array (  326 => 208,  260 => 146,  257 => 145,  251 => 142,  246 => 141,  243 => 140,  224 => 123,  210 => 117,  203 => 113,  191 => 105,  187 => 104,  178 => 98,  147 => 69,  137 => 65,  128 => 63,  120 => 62,  115 => 61,  111 => 60,  74 => 26,  60 => 14,  57 => 13,  49 => 9,  46 => 8,  40 => 5,  35 => 4,  32 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -457,7 +456,7 @@ class __TwigTemplate_3eacd761c23236f092b2b19c632198047f4e825c2f7cb83b6c5b42e80f5
                                 <i class=\"pe page-header-icon pe-7s-users\"></i>
                             </div>
                             <div class=\"header-title\">
-                                <h3 class=\"m-b-xs\">Produkty Ubezpieczeniowe | {{ company.co_name }}</h3>
+                                <h3 class=\"m-b-xs\">Produkty Ubezpieczeniowe | {{ company.co_name|upper }}</h3>
                                 <button class=\"btn btn-sm btn-success pull-right\" data-toggle=\"modal\" data-target=\"#modalADD\">Dodaj produkt</button>
                                 <small>
                                     Tabelaryczny podgląd produktów ubezpieczeniowych wybranego Towarzystwa Ubezpieczeniowego
@@ -487,16 +486,15 @@ class __TwigTemplate_3eacd761c23236f092b2b19c632198047f4e825c2f7cb83b6c5b42e80f5
                                             <tr>
                                                 <th>Nazwa</th>
                                                 <th width=\"150\">Uwagi</th>
-                                                <th width=\"150\">Akcja</th>
+                                                <th width=\"50\">Akcja</th>
                                             </tr>
                                         </thead>
                                         <tbody id=\"product-table\">
                                             {% for product in products %}
                                             <tr id=\"pr_id-{{ product.pr_id }}\">
-                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"{{ product.pr_id }}\" data-title=\"Zmiana danych\" data-url=\"{{ base_url('product/edit') }}\" data-name=\"pr_name\">{{ product.pr_name }}</a></td>
-                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"textarea\" data-pk=\"{{ product.pr_id }}\" data-title=\"Zmiana e-mail\" data-url=\"{{ base_url('product/edit') }}\" data-name=\"pr_notice\">{{ product.pr_notice }}</a></td>
+                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"{{ product.pr_id }}\" data-url=\"{{ base_url('product/edit') }}\" data-name=\"pr_name\">{{ product.pr_name }}</a></td>
+                                                <td><a href=\"#\" class=\"popup_edit\" data-type=\"textarea\" data-pk=\"{{ product.pr_id }}\" data-url=\"{{ base_url('product/edit') }}\" data-name=\"pr_notice\">{{ product.pr_notice }}</a></td>
                                                 <td>
-                                                    <a href=\"#\" class=\"btn btn-success btn-xs\">Szczegóły</a>
                                                     <a href=\"#\" class=\"btn btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#modalDELETE-{{ product.pr_id }}\"><i class=\"fa fa-trash\"></i></a>
                                                 </td>
                                             </tr>
@@ -640,7 +638,7 @@ class __TwigTemplate_3eacd761c23236f092b2b19c632198047f4e825c2f7cb83b6c5b42e80f5
                     );
 
                     \$('#product-table').prepend(
-                        '<tr id=\"pr_id-' + data.pr_id + '\"><td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"' + data.pr_id + '\" data-title=\"Zmiana danych\" data-url=\"{{ base_url('product/edit') }}\" data-name=\"pr_name\">' + data.pr_name + '</a></td><td><a href=\"#\" class=\"popup_edit\" data-type=\"textarea\" data-pk=\"' + data.pr_id + '\" data-title=\"Zmiana e-mail\" data-url=\"{{ base_url('product/edit') }}\" data-name=\"pr_notice\">' + data.pr_notice + '</a></td><td><a href=\"#\" class=\"btn btn-success btn-xs\">Szczegóły</a><a href=\"#\" class=\"btn btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#modalDELETE-' + data.pr_id + '\"><i class=\"fa fa-trash\"></i></a></td></tr>'
+                        '<tr id=\"pr_id-' + data.pr_id + '\"><td><a href=\"#\" class=\"popup_edit\" data-type=\"text\" data-pk=\"' + data.pr_id + '\" data-title=\"Zmiana danych\" data-url=\"{{ base_url('product/edit') }}\" data-name=\"pr_name\">' + data.pr_name + '</a></td><td><a href=\"#\" class=\"popup_edit\" data-type=\"textarea\" data-pk=\"' + data.pr_id + '\" data-title=\"Zmiana e-mail\" data-url=\"{{ base_url('product/edit') }}\" data-name=\"pr_notice\">' + data.pr_notice + '</a></td><td><a href=\"#\" class=\"btn btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#modalDELETE-' + data.pr_id + '\"><i class=\"fa fa-trash\"></i></a></td></tr>'
                     );
 
                     \$('#product-create').find('input:text, input:password, input:file, select, textarea').val('');

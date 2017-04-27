@@ -10,6 +10,7 @@
 * [X-editable](https://github.com/vitalets/x-editable)
 * [jQuery Validation Plugin - Form validation made easy](https://github.com/jquery-validation/jquery-validation)
 * [dependent-dropdown](https://github.com/kartik-v/dependent-dropdown)
+* [bootstrap-datetimepicker] (https://github.com/Eonasdan/bootstrap-datetimepicker/)
 
 
 ## Features:
@@ -22,7 +23,8 @@
 * [x] adding companies and products using jQuery AJAX [2017-04-03 ~ 2017-04-06]
 * [x] adding products to clients using jQuery AJAX [2017-04-06 ~ 2017-04-19]
 * [x] feeding dashboard/monitoring view with data [2017-04-19 ~ 2017-04-26]
-* [ ] fixing bugs and adding some features [2017-04-26 ~ ]
+* [x] fixing bugs and adding some features [2017-04-26 ~ 2017-04-27]
+* [ ] testing on test server [2017-04-27 ~ ]
 
 
 ## Change Log:

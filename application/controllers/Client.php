@@ -11,7 +11,7 @@ class Client extends MY_Controller {
     }
     
     public function all() {
-        $this->data['clients'] = $this->client_m->get_all();
+        $this->data['clients'] = $this->client_m->where('cl_us_id', $this->data['us_id'])->get_all();
         $this->twig->display('client/all', $this->data);
     }
     
@@ -59,5 +59,15 @@ class Client extends MY_Controller {
             echo json_encode(array('status' => 0, 'msg' => 'Coś poszło nie tak'));
         }
         
+    }
+    
+    public function client_check($cl_identity) {
+        $check = $this->client_m->where(array('cl_identity' => $cl_identity, 'cl_us_id' => $this->data['us_id']))->as_array()->get_all();
+        if($check) {
+            $this->form_validation->set_message('client_check', 'Klient już istnieje w bazie');
+            return FALSE;
+        } else {
+            return TRUE;
+        }
     }
 }

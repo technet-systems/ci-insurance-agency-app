@@ -58,8 +58,8 @@
                                         <tbody>
                                             {% for company in companies %}
                                             <tr id="co_id-{{ company.co_id }}">
-                                                <td><a href="#" class="popup_edit" data-type="text" data-pk="{{ company.co_id }}" data-title="Zmiana danych" data-url="{{ base_url('company/edit') }}" data-name="co_name">{{ company.co_name }}</a></td>
-                                                <td><a href="#" class="popup_edit" data-type="textarea" data-pk="{{ company.co_id }}" data-title="Zmiana e-mail" data-url="{{ base_url('company/edit') }}" data-name="co_notice">{{ company.co_notice }}</a></td>
+                                                <td><a href="#" class="popup_edit" data-type="text" data-pk="{{ company.co_id }}" data-url="{{ base_url('company/edit') }}" data-name="co_name">{{ company.co_name|upper }}</a></td>
+                                                <td><a href="#" class="popup_edit" data-type="textarea" data-pk="{{ company.co_id }}" data-url="{{ base_url('company/edit') }}" data-name="co_notice">{{ company.co_notice }}</a></td>
                                                 <td>
                                                     <a href="{{ base_url('product/all/' ~ company.co_id) }}" class="btn btn-success btn-xs">Szczegóły</a>
                                                     <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modalDELETE-{{ company.co_id }}"><i class="fa fa-trash"></i></a>

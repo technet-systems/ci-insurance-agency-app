@@ -117,7 +117,7 @@
                                                 <td><span class="label label-primary">{{ insurance.in_pr_name }}</span></td>
                                                 <td>{{ insurance.in_co_name }}</td>
                                                 <td>{{ insurance.in_identity }}</td>
-                                                <td class="{{ insurance.in_ldate|date('U') - 'now'|date('U') >= 604800 ? 'text-warning' : 'text-danger' }}">{{ insurance.in_ldate }}</td>
+                                                <td class="{{ insurance.in_ldate|date('U') - 'now'|date('U') >= warning_period ? 'text-warning' : 'text-danger' }}">{{ insurance.in_ldate }}</td>
                                                 <td><a href="{{ base_url('insurance/read/' ~ insurance.in_link) }}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="{{ insurance.in_link_description }}"><i class="fa fa-file"></i></a></td>
                                                 <td>{{ insurance.in_notice }}</td>
                                                 <td>
