@@ -29,6 +29,6 @@
 
 ## Change Log:
 
-* X.X.X (XXXX-XX-XX)
+* 1.0.0 (2017-04-27)
 
   * Initial release
